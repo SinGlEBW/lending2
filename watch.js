@@ -1,3 +1,5 @@
+const imagemin = require('imagemin');
+
 const bs = require("browser-sync");
 const browserify = require("browserify");
 const fs = require("fs");
@@ -6,23 +8,17 @@ const babelify = require('babelify');
 
 const { minify } = require('uglify-js');
 
-let outPathCss = "src/css/style.css";
-let outPathJS = "src/js/bundle.js";
-
-
-
+let outPathCss = "src/css/style.min.css";
+let outPathJS = "src/js/bundle.min.js";
 bs.init({
   server: {
     baseDir: "src",
-    index: "index.html"
   },
-
   notify: false,
   scrollProportionally: false,
-  watch: true,
-  xip: true,//при старте обновить файлы
-
   files: [
+    "img/**/*.svg",
+    "index.html",
     {
       match: "**/*.scss",
       fn: watchSCSS,
@@ -34,14 +30,14 @@ bs.init({
         cwd: 'src',//базовый каталог
       }
     },
-    
   ],
 });
 
-
 function watchJS(event, file) {
   let jsFile = fs.readdirSync('src/js/dev');
-  browserify(jsFile, {
+  //browserify - собирает модули в 1 файл. babelify - преобразовывает в es5
+  browserify({
+    entries: jsFile,
     basedir: "src/js/dev",
     debug: true,
   })
@@ -49,7 +45,6 @@ function watchJS(event, file) {
     presets: ['@babel/preset-env'],
   })
   .bundle((err, buffer) => {
-
     if (err) console.dir(err);
     else {
       let data = minify(buffer.toString(), {}).code;
@@ -59,16 +54,17 @@ function watchJS(event, file) {
 }
 
 function watchSCSS(event, file) {
-
+//в node-sass требуется небольшая задержка при обращении к файлам, чтоб не выскакивала ошибка. (это баг)  
   setTimeout(() => {
     render({
-        file: "src/css/scss/style.scss",
+        file: "src/scss/style.scss",
         outputStyle: "compressed",
       },
       (err, result) => {
         if (err) console.error(err);
-        else fs.createWriteStream(outPathCss).write(result.css);
+        else fs.createWriteStream(outPathCss).write(result.css)
       }
     ); 
   }, 300);
 }
+
