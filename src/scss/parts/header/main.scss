@@ -1,0 +1,59 @@
+header{
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; 
+ 
+}
+.header__top {
+  padding-top: 22px;
+  display: grid; 
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.logo {
+  border: 1px solid blueviolet;
+}
+.logo__icon{
+  max-width: 140px;
+}
+.header__phone {
+  border: 1px solid blueviolet;
+}
+.header__social {
+  border: 1px solid blueviolet;
+}
+.header__social-link {
+}
+.header__social-name {
+}
+.header__social-name--whatsapp {
+}
+.header__social-icon {
+  max-width: 48px;
+}
+.header__social-icon--whatsapp {
+}
+.header__social-name--instagram {
+}
+.header__social-icon--instagram {
+}
+.header__middle {
+}
+.header__title {
+}
+.header__title-part-style {
+}
+.header__slogan {
+}
+.header__bottom {
+}
+.scroll-in-down {
+}
+.scroll-in-down__button {
+}
+.scroll-in-down--next {
+}
+.mouse-icon {
+  max-width: 47px;
+}

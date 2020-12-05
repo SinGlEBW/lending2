@@ -1,32 +1,17 @@
-@import 'color';
+@import 'config/colors';
+@import 'config/vars';
+@import 'lib/normalize';
+@import 'config/fonts';
+@import 'config/pattern';//%flexCenter, %flexRowBetween
+@import 'config/mixins';
 
 body{
   background-color: #16171D;
-
-
 }
-.f{
-  font-size: 20px;
-}
-.box{
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: 1fr;
+.container{
+  max-width: 1200px;
+  margin: 0 auto;
   border: 3px solid red;
-  counter-reset: count;
-
-}
-.item{
-  background-color: black;
-  // height: 30px;
-  border: 1px solid green;
-  color: white;
-}
-.item::before{
-  content: counter(count);
-  counter-increment: count;
 }
 
-
-
+@import './parts/header/main'

@@ -60,8 +60,10 @@ function script() {
       presets: ['@babel/preset-env'],
     })
     .bundle((err)=>{
-      console.error(`ERROR >> ${err}`);
-      this.emit('end');//Выкидывает ошибку this.emit is not a function, но не закрывает теперь сервер
+      if(err){
+        console.error(`ERROR >> ${err}`);
+        this.emit('end');//Выкидывает ошибку this.emit is not a function, но не закрывает теперь сервер
+      }
     }),
     source('bundle.min.js'),
     buffer(),

@@ -5,15 +5,19 @@
     "ccылка",
     "cылка",
     "gifsicle",
+    "mixins",
     "mozjpeg",
     "optipng",
     "prefixer",
+    "truetype",
     "webp",
     "вспомогающих",
     "другова",
     "минифицирован",
     "перезатирает",
-    "подгрузка"
+    "подгрузка",
+    "скрола"
   ],
-  "svg.preview.background": "transparent"
+  "svg.preview.background": "transparent",
+  "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?"
 }

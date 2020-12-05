@@ -9,12 +9,9 @@
         stroke-width: 2px;
       }
 
-      .b, .d {
-        isolation: isolate;
-        fill: #0c252d;
-      }
-
+    
       .b {
+        fill: #eef1f1;
         font-size: 40px;
         font-family: PFEncoreSansPro-Medium, PF Encore Sans Pro;
         font-weight: 500;
@@ -28,6 +25,7 @@
       }
 
       .d {
+        fill: #0c252d;
         font-size: 50px;
         font-family: PFEncoreSansPro-Bold, PF Encore Sans Pro;
         font-weight: 700;

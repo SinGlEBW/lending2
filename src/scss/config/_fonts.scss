@@ -1,0 +1,26 @@
+@mixin font-face($font-family, $url, $font-weight) {
+	@font-face {
+		font-family: '#{$font-family}';
+		src: url('#{$url}.eot');
+		src: url('#{$url}.eot?#iefix') format('embedded-opentype'),
+				 url('#{$url}.ttf') format('truetype'),
+				 url('#{$url}.svg#Consolas') format('svg'),
+				 url('#{$url}.woff') format('woff'),
+				 url('#{$url}.woff2') format('woff2');
+		font-weight: $font-weight;
+		font-style: normal;
+	}	
+}
+// Шрифты подключаются относительно папки css, а не scss 
+
+@include font-face('Consolas', '../fonts/Consolas', normal);
+@include font-face('GothamPro-Bold', '../fonts/GothamPro-Bold', normal);
+@include font-face('MyriadPro-BoldIt', '../fonts/MyriadPro/BoldIt', normal);
+@include font-face('MyriadPro-Regular', '../fonts/MyriadPro/Regular', normal);
+
+@include font-face('PFEncoreSansPro-Bold', '../fonts/PFEncoreSansPro/Bold', normal);
+@include font-face('PFEncoreSansPro-Light', '../fonts/PFEncoreSansPro/Light', normal);
+@include font-face('PFEncoreSansPro-Medium', '../fonts/PFEncoreSansPro/Medium', normal);
+@include font-face('PFEncoreSansPro-Thin', '../fonts/PFEncoreSansPro/Thin', normal);
+
+
