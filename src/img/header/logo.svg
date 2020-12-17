@@ -1,9 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 215.5 195.671">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 245.5 195.671" >
   <defs>
     <style>
       .a {
         fill: none;
-        stroke: #0c252d;
+        stroke: #eef1f1;
         stroke-linecap: round;
         stroke-miterlimit: 10;
         stroke-width: 2px;
@@ -34,16 +34,16 @@
   </defs>
   <title>logo</title>
   <g>
-    <line class="a" x1="151" y1="159.986" x2="213.67" y2="159.986"/>
-    <text class="b" transform="translate(148.833 153.929)">taff</text>
+    <line class="a" x1="151" y1="159.986" x2="240.67" y2="159.986"/>
+    <text class="b" transform="translate(148.833 153.929)">Staff</text>
   </g>
   <g>
     <path class="c" d="M52.2,114.886l45.1-26,45.1,26v51.9l-45.1,26-45.1-26Z"/>
     <text class="d" transform="translate(80.525 154.048)">S</text>
   </g>
   <g>
-    <line class="a" x1="100.5" y1="73.186" x2="214.5" y2="73.186"/>
-    <text class="b" transform="translate(99.095 67.632)">lektrik</text>
+    <line class="a" x1="100.5" y1="73.186" x2="240.5" y2="73.186"/>
+    <text class="b" transform="translate(99.095 67.632)">Elektrik</text>
   </g>
   <g>
     <path class="c" d="M2.5,28.886l45.1-26,45.1,26v51.9l-45.1,26-45.1-26Z"/>

@@ -1,0 +1,77 @@
+.section2{
+  background: #fff;
+}
+.advantages {
+  display: grid;
+  grid-template: auto / 1fr 1fr 1fr 1fr;
+  grid-column-gap: 5rem;   
+  font-family: 'MyriadPro-Regular', serif;
+  padding: 3.5rem 0;  
+}
+.advantages__title {
+  grid-column: 1 / -1;
+  justify-self: center;
+  
+  font-size: 2.8rem;
+  text-transform: uppercase;
+  color: $a-title;
+  text-align: center;
+
+  &-end{
+    color: $a-title-end;
+  }
+  &::after{
+    content: '';
+    width: 33.7rem;
+    height: .1rem;
+    background-color: #adadad;
+    display: block;
+    margin: .8rem auto 0;
+   
+  }
+}
+.advantages__subtitle {
+  grid-column: 2 / 2 span;
+  justify-self: center;
+
+  text-align: center;
+  font-size: 2.6rem;
+  color: #adadad;
+  
+  margin: 2rem 0 5.4rem;
+}
+.card {
+  grid-column: 1 span;
+  grid-row: 3;
+  display: grid;
+  grid-auto-rows: max-content;
+  justify-items: center;
+  
+  
+  &__icon {
+    max-width: 9rem;
+  }
+  &__title {
+    font-size: 2rem;
+    color: #868686;
+    margin-top: 2.1rem;
+    &::after{
+      content: '';
+      width: 5.7rem;
+      height: 0.1rem;
+      display: block;
+      margin: .9rem auto 0;
+      background-color: #cecece;//
+
+    }
+  }
+  &__text {
+    align-self: baseline;
+    font-size: 1.6rem;
+    color: #adadad;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  border: 1px solid cadetblue;
+}

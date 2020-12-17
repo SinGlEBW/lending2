@@ -1,17 +1,25 @@
+@import 'config/fonts';
+:root{
+  font-size: 10px;
+}
+
 @import 'config/colors';
 @import 'config/vars';
 @import 'lib/normalize';
-@import 'config/fonts';
+
 @import 'config/pattern';//%flexCenter, %flexRowBetween
 @import 'config/mixins';
 
 body{
   background-color: #16171D;
 }
+
 .container{
   max-width: 1200px;
   margin: 0 auto;
-  border: 3px solid red;
+  padding: 0 15px;
+  border: 1px solid red;
 }
 
-@import './parts/header/main'
+@import './parts/header/main';
+@import './parts/advantages/advantages';

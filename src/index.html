@@ -1,39 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="./css/style.min.css" />
   <title>"Electric Staff"</title>
 </head>
+
 <body>
   <header style="background-image: url(./img/header/bg.jpg);">
-    <div class="container" >
+    <div class="container">
+
       <div class="header__top">
-        <div class="logo">
-          <object class="logo__icon" style="stroke:aliceblue" data="./img/header/logo.svg" type="image/svg+xml">Лого</object>
-        </div>
+        <object class="logo" style="stroke:aliceblue" data="./img/header/logo.svg" type="image/svg+xml">Лого</object>
         <a class="header__phone" href="tel:+79024058000">+7(902)405-80-00</a>
-        <div class="header__social">
-          <a class="header__social-link" href="#">
-            <span class="header__social-name header__social-name--whatsapp">WhatsApp</span>
-            <object class="header__social-icon header__social-icon--whatsapp" data="./img/header/whatsapp.svg" type="image/svg+xml">WhatsApp</object>
-          </a>
-          <a class="header__social-link" href="#">
-            <span class="header__social-name header__social-name--instagram">Instagram</span>
-            <object class="header__social-icon header__social-icon--instagram" data="./img/header/instagram.svg" type="image/svg+xml">Instagram</object>
-          </a>
-        </div>
+
+        <a class="header__social-link grid-whatsapp" href="#">
+          <span class="header__social-name header__social-name--whatsapp">WhatsApp</span>
+          <object class="header__social-icon" data="./img/header/whatsapp.svg" type="image/svg+xml">WhatsApp</object>
+        </a>
+        <a class="header__social-link grid--instagram" href="#">
+          <span class="header__social-name header__social-name--instagram">Instagram</span>
+          <object class="header__social-icon" data="./img/header/instagram.svg" type="image/svg+xml">Instagram</object>
+        </a>
+
       </div>
+
       <div class="header__middle">
         <h1 class="header__title">
-          <span class="header__title-part-style">ЭЛЕКТРО/</span>
-          МОНТАЖНЫЕ
-          <br>РАБОТЫ
+          <span class="header__title-start">ЭЛЕКТРО/</span>МОНТАЖНЫЕ
+          <span class="header__title-end">РАБОТЫ</span>
         </h1>
+
         <h3 class="header__slogan">Мы работаем для Вас. И с максимальным вниманием относимся к каждому клиенту</h3>
       </div>
+
       <div class="header__bottom">
+        <button class="scroll-in-down__button">Узнать адрес</button>
+        <button class="scroll-in-down__button scroll-in-down--next"></button>
+        <object class="mouse-icon" data="./img/mouse.min.svg" type="image/svg+xml">mouse</object>
+      </div>
+
+    </div>
+  </header>
+  <section class="section2">
+    <div class="container">
+      <div class="advantages">
+        <h3 class="advantages__title">ПОЧЕМУ <span class="advantages__title-end">МЫ?</span></h3>
+        <p class="advantages__subtitle">Почему за проведение электромонтажных работ обращаются к нам?</p>
+        <div class="card card__one">
+          <object data="./img/advantages/cart1.svg" type="image/svg+xml" class="card__icon"></object>
+          <h4 class="card__title">ДОСТУПНЫЕ ЦЕНЫ</h4>
+          <p class="card__text">Стоимость электромонтажных работ ниже рыночной на 10-15% за счет прямого сотрудничества снами – без посредников и без накруток.</p>
+        </div>
+        <div class="card card__two">
+          <object data="./img/advantages/cart2.svg" type="image/svg+xml" class="card__icon"></object>
+          <h4 class="card__title">ОБОРУДОВАНИЕ</h4>
+          <p class="card__text">Используем в работе инструменты (перфоратор, штроборез, пылесос, высоко-оборотистая дрель и т.д.) </p>
+        </div>
+        <div class="card card__three">
+          <object data="./img/advantages/cart3.svg" type="image/svg+xml" class="card__icon"></object>
+          <h4 class="card__title">ГАРАНТИИ</h4>
+          <p class="card__text"> Если вы обнаружите  недоработку наших сотрудников, то устранение за наш счет! Однако за годы работы таких случаев было не много.</p>
+        </div>
+        <div class="card card__four">
+          <object data="./img/advantages/cart4.svg" type="image/svg+xml" class="card__icon"></object>
+          <h4 class="card__title">МАТЕРИАЛЫ</h4>
+          <p class="card__text">При необходимости мы можем  оказать содействие в выборе, покупке и доставке материалов , сэкономив ваше время и деньги!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+  <script src="./js/bundle.min.js"></script>
+</body>
+
+</html>
+
+
+
+<!-- <div class="header__top">
+
+  <div class="logo">
+    <object class="logo__icon" style="stroke:aliceblue" data="./img/header/logo.svg" type="image/svg+xml">Лого</object>
+  </div>
+  <a class="header__phone" href="tel:+79024058000">+7(902)405-80-00</a>
+  <div class="header__social">
+    <a class="header__social-link" href="#">
+      <span class="header__social-name header__social-name--whatsapp">WhatsApp</span>
+      <object class="header__social-icon header__social-icon--whatsapp" data="./img/header/whatsapp.svg" type="image/svg+xml">WhatsApp</object>
+    </a>
+    <a class="header__social-link" href="#">
+      <span class="header__social-name header__social-name--instagram">Instagram</span>
+      <object class="header__social-icon header__social-icon--instagram" data="./img/header/instagram.svg" type="image/svg+xml">Instagram</object>
+    </a>
+  </div>
+  
+</div> 
+
+
+  <div class="header__bottom">
         <div class="scroll-in-down">
           <button class="scroll-in-down__button">Узнать адрес</button>
           <button class="scroll-in-down__button scroll-in-down--next"></button>
@@ -42,12 +114,5 @@
           <object data="./img/mouse.min.svg" type="image/svg+xml">mouse</object>
         </div>
       </div>
-    </div>
-  </header>
-    
-  
 
-
-  <script src="./js/bundle.min.js"></script>
-</body>
-</html>
+-->

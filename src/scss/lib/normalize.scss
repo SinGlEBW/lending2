@@ -1,4 +1,4 @@
-*, ::after, ::before{
+*, *::after, *::before{
   box-sizing: border-box;
 }
  html {
@@ -6,7 +6,13 @@
   -webkit-text-size-adjust: 100%; /* 2 */
 }
 
-body {
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
   padding: 0;
 }
@@ -14,10 +20,8 @@ body {
 main {
   display: block;
 }
-
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
+span{
+  display: inline-block;
 }
 
 hr {
@@ -28,7 +32,7 @@ hr {
 
 pre {
   font-family: monospace, monospace; /* 1 */
-  font-size: 1em; /* 2 */
+  font-size: 1rem; /* 2 */
 }
 
 a {
@@ -59,7 +63,7 @@ code,
 kbd,
 samp {
   font-family: monospace, monospace; /* 1 */
-  font-size: 1em; /* 2 */
+  font-size: 1rem; /* 2 */
 }
 
 small {
@@ -82,7 +86,7 @@ sup {
   top: -0.5em;
 }
 
-img, svg {
+img, svg, object {
   border-style: none;
   display: inline-block;
   vertical-align: bottom;
@@ -132,7 +136,7 @@ button:-moz-focusring,
 }
 
 fieldset {
-  padding: 0.35em 0.75em 0.625em;
+  padding: 0.35rem 0.75rem 0.625rem;
 }
 
 legend {

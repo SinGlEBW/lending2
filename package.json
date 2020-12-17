@@ -32,6 +32,21 @@
   "eslintConfig": {
     "ignorePatterns": "./Readme"
   },
+  
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all",
+      "ie >= 11",
+      "Edge >= 12"
+    ],
+    "development": [
+      "last 2 chrome version",
+      "last 2 firefox version",
+      "last 2 safari version"
+    ]
+  },
   "license": "ISC",
   "dependencies": {
     "dotenv": "^8.2.0"

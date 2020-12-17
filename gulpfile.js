@@ -37,9 +37,9 @@ function style(cb) {
     sourcemaps.init(),
     sass({outputStyle: 'compressed'}).on('error',sass.logError),
     autoprefixer({
-      overrideBrowserslist: ['last 3 versions'],
       cascade: false,
-      grid: true
+      grid: true,
+      
     }),
     rename({suffix: '.min'}),
     sourcemaps.write('./sourcemap'),
