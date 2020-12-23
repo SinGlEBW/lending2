@@ -111,7 +111,7 @@ var multiItemSlider = (function () {
 
     var _transformItem = function (direction) {
       var nextItem, currentIndicator = _indexIndicator;
-      console.dir(_isElementVisible(_mainElement)); 
+      // console.dir(_isElementVisible(_mainElement)); 
       if (!_isElementVisible(_mainElement)) {
         return;
       }

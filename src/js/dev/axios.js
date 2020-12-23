@@ -1,15 +1,10 @@
 import axios from 'axios';
-
-//graph.instagram.com  //запрос на медиа файлы
-
-/*
-
-12503711546  - id шурика
-
-  В get запросе передать список полей можно
-  ?fields={fields}
-  &access_token={access-token}
-
-timestamp - дата публикации
-
-*/
+let url =  'https://graph.instagram.com/me?access_token=IGQVJWWWlLQ0p2TjVDeEQxdXFQSUVkMmpNZAHVuajRyZAm94ckZAPY1FHQVRycHI0N3BQZAEJGZAHpwUWVsXzAzbXlzelQ3YXN4a3JtTHJYbDEwSzR0UnpILVdFVDBtWC1DOVRtLUZAJNXNRcWdGQ2o0MjAyaAZDZD'
+let d = 'https://singlebw.github.io/lending2/'
+axios.get(d)
+.then((data)=>{
+  console.dir(data);
+})
+.catch((err)=>{
+  console.dir(err);
+})
