@@ -1,20 +1,21 @@
 require('dotenv').config();
 const { src, dest, series, parallel, watch } = require('gulp');
-const bs = require('browser-sync');
-const pump = require('pump');
-
 const fs = require('fs');
+const del = require('del');
+const pump = require('pump');
+const bs = require('browser-sync');
+
 const sass = require('gulp-sass');
 const rename = require('gulp-rename');
 const sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require('gulp-autoprefixer');
 
 const babelify = require('babelify');
-const browserify = require('browserify');
 const uglify = require('gulp-uglify');
 const buffer = require('vinyl-buffer');
+const browserify = require('browserify');
 const source = require('vinyl-source-stream');
-const del = require('del');
+
 const imagemin = require('gulp-imagemin');
 
 const { EventEmitter } = require('events');
@@ -62,28 +63,34 @@ function script(e) {
       presets: ['@babel/preset-env'],
     })
     .bundle((err)=>{
-      let a = new EventEmitter();
+      let event = new EventEmitter();
       if(err){
-       
         console.error(`ERROR >> ${err}`);
-        a.emit('end');
-        //this.emit('end');//Выкидывает ошибку this.emit is not a function, но не закрывает теперь сервер
+        event.emit('end');
+        //this.emit('end');//Выкидывает ошибку this.emit is not a function, сервер не закрывает, но в некоторых случаях стопорит js файл
       }
     }),
-    source('bundle.min.js'),
+    source('bundle.js'),
     buffer(),
-    sourcemaps.init({
-      loadMaps: true,
-    }),
-    // uglify(),
-    sourcemaps.write('./sourcemap'),
-    dest('src/js').on('data', ()=>{
-      console.dir(11);
-      bs.reload()
-    }),
+    // sourcemaps.init({ loadMaps: true }),
+    // sourcemaps.write('./sourcemap'),
+    dest('src/js').on('data', bs.reload)
     
   ])
+}
 
+
+function jsMin(){
+
+  return (
+    pump([
+      src('src/js/bundle.js'),
+      // buffer(),
+      uglify(),
+      rename({suffix: '.min'}),
+      dest('src/js')
+    ])
+  )
 }
 
 function build(){
@@ -128,8 +135,9 @@ function watching() {
 exports.images = images;
 exports.style = style;
 exports.script = script;
+exports.jsMin = jsMin;
 
-exports.build = series(()=>del('dist'), build, images);
+exports.build = series(()=>del('dist'), jsMin, build, images);
 exports.default = parallel( style, script, browserSync, watching )
 
 
