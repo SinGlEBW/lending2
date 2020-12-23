@@ -1,0 +1,13 @@
+%flexCenter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+%flexRowBetween{
+  display: flex;
+  justify-content: space-between;
+}
+/*
+  Шаблон подключается 
+  @extend %flexCenter
+*/
