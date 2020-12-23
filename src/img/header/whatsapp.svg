@@ -1,14 +1,8 @@
 <?xml-stylesheet type="text/css" href="../../css/style.min.css"?> 
 <svg viewBox="-23 -21 682 682.66669" xmlns="http://www.w3.org/2000/svg" 
      class="_svg-header-social _svg-icon--whatsapp " >
-  <animate attributeType="XML"
-    attributeName="fill"
-    from="" to=""
-    dur=""
-    repeatCount=""/>
 
-  <linearGradient id="lg" x1="0" y1="1" x2="1" y2="0"
-    spreadMethod="">
+  <linearGradient id="lg" x1="0" y1="1" x2="1" y2="0">
     <stop offset="0" stop-color="#90e4a3"/>
     <stop offset="1" stop-color="#1ef32c"/>
   </linearGradient>

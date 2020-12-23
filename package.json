@@ -32,7 +32,6 @@
   "eslintConfig": {
     "ignorePatterns": "./Readme"
   },
-  
   "browserslist": {
     "production": [
       ">0.2%",
@@ -49,6 +48,8 @@
   },
   "license": "ISC",
   "dependencies": {
+    "animejs": "^3.2.1",
+    "axios": "^0.21.1",
     "dotenv": "^8.2.0"
   }
 }

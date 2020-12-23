@@ -7,7 +7,6 @@
         stroke-width: 5px;
         fill-rule: evenodd;
       }
-
       .b, .c {
         fill: #fff;
       }

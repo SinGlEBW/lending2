@@ -86,7 +86,7 @@ sup {
   top: -0.5em;
 }
 
-img, svg, object {
+img, svg, object, ::after, ::before {
   border-style: none;
   display: inline-block;
   vertical-align: bottom;
@@ -118,6 +118,7 @@ button,
 [type="reset"],
 [type="submit"] {
   -webkit-appearance: button;
+  border: none;
 }
 
 button::-moz-focus-inner,

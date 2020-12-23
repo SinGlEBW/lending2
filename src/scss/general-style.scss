@@ -1,0 +1,114 @@
+.title-two {
+  margin: 4.7rem auto 0;  
+  font-size: 2.8rem;
+  text-transform: uppercase;
+  color: $a-title;
+  text-align: center;
+
+  &__end{
+    color: $a-title-end;
+  }
+  &::after{
+    content: '';
+    width: 33.7rem;
+    height: .1rem;
+    background-color: #adadad;
+    display: block;
+    margin: .8rem auto 0;
+  }
+}
+
+.subtitle {
+  max-width: 52.8rem;
+  text-align: center;
+  font-size: 2.0rem;
+  line-height: 2.5rem;
+  color: $a-subtitle;
+  margin: 2rem auto 5.4rem;
+}
+
+.next-slider-btn{
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 7.2rem;
+  background-color: #fc635e;
+  border: none;
+  outline: none;
+  box-shadow: 0 0 10px 3px #b5b6b3;
+ 
+  &::before, &::after{
+    content: '';
+    display: block;
+    margin: 0 auto;
+
+    border-width: .2rem;
+    border-style: solid;
+    border-left: none;
+    border-top: none;
+    border-color: #fff;
+  }
+
+  &::before{
+    width: 0;
+    height: 2rem;
+    border-bottom: none;
+    transform: translateY(.5rem);
+  }
+
+  &::after{
+    width: 1rem;
+    height: 1rem;
+    background-color: transparent;
+    transform: translateY(-.5rem) rotate(45deg);
+  }
+
+  &--bg-off{//доп класс
+    background-color: transparent;
+    border: 1px solid #fc635e;
+    &::after, &::before{ border-color: #fc635e; }
+  }
+
+  &:hover{
+    cursor: pointer;
+    background-color: #fff;
+  }
+}
+
+.description {
+  padding: 2.8rem 5.1rem;
+  // border: 1px solid #000;
+ 
+  &__title {
+    font-size: 2.8rem;
+    line-height: 4rem;
+    color: #2d2c2c;
+    // border: 1px solid #f96763;
+    
+    &::before, &::after{
+      content: '';
+      display: inline-block;
+      width: 1rem;
+      height: 4rem;
+      margin-right: 1.7rem;
+      background-color: #f96763;}
+    &::after{ display: none;}
+  }
+  &__text {
+    // border: 1px solid #000;
+    font-size: 1.6rem;
+    color: #9e9898;
+    max-width: 39.5rem;
+    line-height: 2.5rem;
+  }
+
+
+  &--right{//доп класс
+      text-align: right;
+      .description__title{
+        &::before{ display: none; }
+        &::after{ display: inline-block; margin: 0 0 0 1.7rem; }
+      }
+  }
+}

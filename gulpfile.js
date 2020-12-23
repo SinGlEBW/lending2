@@ -17,6 +17,7 @@ const source = require('vinyl-source-stream');
 const del = require('del');
 const imagemin = require('gulp-imagemin');
 
+const { EventEmitter } = require('events');
 
 function browserSync(){
   return (
@@ -47,9 +48,10 @@ function style(cb) {
  ])
 }
 
-function script() {
- let jsFile = fs.readdirSync('src/js/dev');
+function script(e) {
  
+ let jsFile = fs.readdirSync('src/js/dev');
+
   return pump([
     browserify({
       entries: jsFile,
@@ -60,9 +62,12 @@ function script() {
       presets: ['@babel/preset-env'],
     })
     .bundle((err)=>{
+      let a = new EventEmitter();
       if(err){
+       
         console.error(`ERROR >> ${err}`);
-        this.emit('end');//Выкидывает ошибку this.emit is not a function, но не закрывает теперь сервер
+        a.emit('end');
+        //this.emit('end');//Выкидывает ошибку this.emit is not a function, но не закрывает теперь сервер
       }
     }),
     source('bundle.min.js'),
@@ -70,9 +75,13 @@ function script() {
     sourcemaps.init({
       loadMaps: true,
     }),
-    uglify(),
+    // uglify(),
     sourcemaps.write('./sourcemap'),
-    dest('src/js'),
+    dest('src/js').on('data', ()=>{
+      console.dir(11);
+      bs.reload()
+    }),
+    
   ])
 
 }
@@ -110,7 +119,7 @@ function images(){
 
 function watching() {
   watch('**/*.scss', style).on('change', bs.reload);
-  watch('src/js/dev/*.js', script).on('change', bs.reload)
+  watch('src/js/dev/*.js', script)
   watch('src/*.html').on('change', bs.reload)
 };
 
