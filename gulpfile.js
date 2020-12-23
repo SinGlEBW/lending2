@@ -57,7 +57,7 @@ function script(e) {
     browserify({
       entries: jsFile,
       basedir: "src/js/dev",
-      debug: true,
+      // debug: true,
     })
     .transform(babelify, {
       presets: ['@babel/preset-env'],
