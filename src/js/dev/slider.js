@@ -1,5 +1,25 @@
 'use strict';
+window.onload = function(){
+
 var multiItemSlider = (function () {
+
+  Element.prototype.c_querySelector = function (selectOrRegExp, flag = false){
+  
+    if(selectOrRegExp.constructor === RegExp.prototype.constructor && flag){
+      return [...this.children].find((item) => selectOrRegExp.test(item.className));
+    }else{
+      return this.querySelector(selectOrRegExp);
+    }
+  }
+  
+  Element.prototype.c_querySelectorAll = function (selectOrRegExp, flag = false){
+ 
+    if(selectOrRegExp.constructor === RegExp.prototype.constructor && flag){
+      return [...this.children].filter((item) => selectOrRegExp.test(item.className));
+    }else{
+      return this.querySelectorAll(selectOrRegExp);
+    }
+  }
 
   function _isElementVisible(element) {
     var rect = element.getBoundingClientRect(),
@@ -17,18 +37,20 @@ var multiItemSlider = (function () {
     );
   }
 
-  return function (selector, config) {
+  return function (selector, config) { 
     var
       _mainElement = document.querySelector(selector),
-      _sliderWrapper = _mainElement.querySelector('.slider__items'),
-      _sliderItems = _mainElement.querySelectorAll('.slider__item'),
-      _sliderControls = _mainElement.querySelectorAll('.slider__control'),
-      _sliderControlLeft = _mainElement.querySelector('.slider__control_left'),
-      _sliderControlRight = _mainElement.querySelector('.slider__control_right'),
+      _sliderWrapper = _mainElement.c_querySelector(/.+items/, true),
+      _sliderItems = _sliderWrapper.c_querySelectorAll(/.+item/, true),
+      _sliderControls = _mainElement.c_querySelectorAll(/.+control/, true),
+      _sliderControlLeft = _mainElement.c_querySelector(/.+control_left/, true),
+      _sliderControlRight = _mainElement.c_querySelector(/.+control_right/, true),
+
       _wrapperWidth = parseFloat(getComputedStyle(_sliderWrapper).width),
       _itemWidth = parseFloat(getComputedStyle(_sliderItems[0]).width),
-      _html = _mainElement.innerHTML,
-
+      _html = _mainElement.innerHTML;
+     
+    let
       _indexIndicator = 0,
       _maxIndexIndicator = _sliderItems.length - 1,
       _indicatorItems,
@@ -112,9 +134,9 @@ var multiItemSlider = (function () {
     var _transformItem = function (direction) {
       var nextItem, currentIndicator = _indexIndicator;
       // console.dir(_isElementVisible(_mainElement)); 
-      if (!_isElementVisible(_mainElement)) {
-        return;
-      }
+      // if (!_isElementVisible(_mainElement)) {
+      //   return;
+      // }
       if (direction === 'right') {
         _positionLeftItem++;
         if ((_positionLeftItem + _wrapperWidth / _itemWidth - 1) > position.getMax()) {
@@ -193,11 +215,12 @@ var multiItemSlider = (function () {
     var _refresh = function () {
       clearInterval(_interval);
       _mainElement.innerHTML = _html;
-      _sliderWrapper = _mainElement.querySelector('.slider__items');
-      _sliderItems = _mainElement.querySelectorAll('.slider__item');
-      _sliderControls = _mainElement.querySelectorAll('.slider__control');
-      _sliderControlLeft = _mainElement.querySelector('.slider__control_left');
-      _sliderControlRight = _mainElement.querySelector('.slider__control_right');
+
+      _sliderWrapper = _mainElement.c_querySelector(/.+items/, true);
+      _sliderItems = _sliderWrapper.c_querySelectorAll(/.+item/, true);
+      _sliderControls = _mainElement.c_querySelectorAll(/.+control/, true);
+      _sliderControlLeft = _mainElement.c_querySelector(/.+control_left/, true);
+      _sliderControlRight = _mainElement.c_querySelector(/.+control_right/, true);
       _wrapperWidth = parseFloat(getComputedStyle(_sliderWrapper).width);
       _itemWidth = parseFloat(getComputedStyle(_sliderItems[0]).width);
       _positionLeftItem = 0;
@@ -239,20 +262,26 @@ var multiItemSlider = (function () {
         }
       });
     }
-
+ 
     var _addIndicators = function () {
       var sliderIndicators = document.createElement('ol');
-      sliderIndicators.classList.add('slider__indicators');
+      sliderIndicators.classList.add(selector.split('__')[0].slice(1)+'__indicators');
+
       for (var i = 0; i < _sliderItems.length; i++) {
         var sliderIndicatorsItem = document.createElement('li');
         if (i === 0) {
           sliderIndicatorsItem.classList.add('active');
         }
         sliderIndicatorsItem.setAttribute("data-slide-to", i);
+     
         sliderIndicators.appendChild(sliderIndicatorsItem);
+        _sliderWrapper.insertAdjacentElement("afterend",  sliderIndicators)
       }
-      _mainElement.appendChild(sliderIndicators);
-      _indicatorItems = _mainElement.querySelectorAll('.slider__indicators > li')
+      // console.dir(sliderIndicators);
+
+      // _mainElement.appendChild(sliderIndicators);
+
+      _indicatorItems = _mainElement.querySelectorAll(selector.split('__')[0]+'__indicators > li')
     }
 
     // добавляем индикаторы
@@ -286,7 +315,26 @@ var multiItemSlider = (function () {
   }
 }());
 
-var slider = multiItemSlider('.slider__inner', {
+var slider = multiItemSlider('.slider', {
   isCycling: true,
   interval: 8000
 });
+var instSlider1 = multiItemSlider('.inst__slider--1', {
+  isCycling: true,
+  interval: 5000
+});
+var instSlider2 = multiItemSlider('.inst__slider--2', {
+  isCycling: true,
+  interval: 5000
+});
+var instSlider3 = multiItemSlider('.inst__slider--3', {
+  isCycling: true,
+  interval: 5000
+});
+var instSlider4 = multiItemSlider('.inst__slider--4', {
+  isCycling: true,
+  interval: 5000
+});
+
+
+}

@@ -23,11 +23,15 @@ const { EventEmitter } = require('events');
 function browserSync(){
   return (
     bs.init({
-      server: {
-        baseDir: 'src',
-      },
+      // server: {
+      //   baseDir: 'src',
+      // },
       notify: false,
       scrollProportionally: false,
+
+      proxy: 'len.loc',
+      port: 8080,
+     
     })
   )
 }
@@ -72,13 +76,12 @@ function script(e) {
     }),
     source('bundle.js'),
     buffer(),
-    // sourcemaps.init({ loadMaps: true }),
-    // sourcemaps.write('./sourcemap'),
+    sourcemaps.init({ loadMaps: true }),
+    sourcemaps.write('./sourcemap'),
     dest('src/js').on('data', bs.reload)
     
   ])
 }
-
 
 function jsMin(){
 
@@ -128,6 +131,7 @@ function watching() {
   watch('**/*.scss', style).on('change', bs.reload);
   watch('src/js/dev/*.js', script)
   watch('src/*.html').on('change', bs.reload)
+  watch('**/*.php').on('change', bs.reload).on('error', bs.reload)
 };
 
 
@@ -142,6 +146,7 @@ exports.default = parallel( style, script, browserSync, watching )
 
 
 /*
+
 ######-------<{ Вступление }>--------######
 *Старый task метод регистрации событий ещё работает, но лучше начинать использовать export
 1. src(), dest(), series(), parallel() методы для удобства написанные на NODEJS. библиотеки NODEJS можно использовать по полной.

@@ -1,9 +1,13 @@
 .quality{
   background-color: #f2f2f2;
-
+  padding: 10px 0 ;
+  position: relative;
+  z-index: 0;//не убирать, иначе слайдер перестаёт работать т.к. не видит _isElementVisible
+  
   &__inner{
     display: flex;
     justify-content: space-between;
+    margin-bottom: 3rem;
   }
   &__wrap-img{
     width: 50%;

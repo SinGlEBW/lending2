@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
-  <meta charset="UTF-8" >
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
-  <link rel="stylesheet" href="./css/style.min.css" >
+  <meta charset="utf-8" >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1" >
+
+  <link rel="stylesheet" href="./css/style.min.css" />
+  <style>
+    .xdebug-error, .xdebug-var-dump{ font-size: 25px; }
+    /* .xdebug-var-dump i { color: #77A8C6; } */
+    
+  </style>
   <title>"Electric Staff"</title>
 </head>
 
@@ -148,14 +154,7 @@
         </div>
       </div>
 
-      <button class="next-slider-btn next-slider-btn--bg-off"></button>
-    </div>
-  </section>
-
-  <section class="slider">
-    <div class="container">
-      <div class="slider__inner">
-
+       <div class="slider">
         <div class="slider__items">
 
           <div class="slider__item slider__item--one" style="background-image: url(./img/slider/img1.jpg);">
@@ -212,20 +211,19 @@
         </div>
         <!-- КНОПКИ "НАЗАД" И "ВПЕРЁД" -->
         <a class="slider__control slider__control_left" href="#" role="button"></a>
-        <a class="slider__control slider__control_right slider__control_show" href="#" role="button"></a>
-
-      </div>
+        <a class="slider__control slider__control_right slider__control_show" href="#" role="button"></a> 
+      </div> 
+      
+      <button class="next-slider-btn next-slider-btn--bg-off"></button>
     </div>
   </section>
 
-  <section class="photo-ins">
+  <section class="inst">
     <div class="container">
-      <h3 class="title-two">INSTAGRAM</h3>
-
-
-      <svg>
-        <use xlink:href="#pWhatsApp"/>
-      </svg>
+      <div class="inst__inner">
+        <h3 class="title-two">INSTAGRAM</h3>
+        <?php require_once __DIR__.'/Views/instSliders.php';  ?>
+      </div>
     </div>
   </section>
 
@@ -237,8 +235,15 @@
   </section>
 
 
+  <section class="y-map">
+    <div class="container">
+      <div class="y-map__inner">
+        <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A8724fedd412e6d51eaadcbe84377804ef679aa852682ce253dd0e7884c91e5e5&amp;width=1170&amp;height=500&amp;lang=ru_RU&amp;scroll=true"></script>
+      </div>
+    </div>
+  </section>
   
-  <script src="./js/bundle.js"></script>
+  <script src="./js/bundle.js" defer></script>
 </body>
 
 </html>
