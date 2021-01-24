@@ -1,0 +1,12 @@
+/*
+создание
+  @mixin myMixin($a, $b) {...}
+подключение
+  @include myMixin(25px, green)
+*/
+
+@mixin media($maxSize) {
+  @media screen and (max-width: $maxSize) {
+    @content;
+  }
+}

@@ -1,7 +1,0 @@
-{
-  "port": "4000",
-  "host": "localhost",
-  "db": {
-    "login": "root"
-  }
-}

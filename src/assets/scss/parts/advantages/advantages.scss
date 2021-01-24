@@ -1,0 +1,72 @@
+.advantages{
+  background: $a-bg;
+}
+
+.cards{
+  display: flex;
+  justify-content: space-between; 
+  flex-wrap: wrap;
+}
+
+.card {
+  max-width: 25.4rem;
+  display: block;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  border-radius: 1%;
+  padding: 1rem 0;
+  &__icon {
+    max-width: 10rem;
+    filter: drop-shadow(0 0 10px rgba(0,0,0,.29));
+  }
+  &__title {
+    font-size: 2rem;
+    color: #868686;
+    margin-top: 2.1rem;
+    &::after{
+      content: '';
+      width: 5.7rem;
+      height: 0.1rem;
+      display: block;
+      margin: .9rem auto 0;
+      background-color: #cecece;//
+
+    }
+  }
+  &__text {
+    align-self: baseline;
+    font-size: 1.6rem;
+    color: #adadad;
+    text-align: center;
+    padding: 0 1rem;
+  }
+}
+
+@media screen and (max-width: 1070px) {
+  
+  .cards{
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  .card {
+    max-width: 35%;
+    &:nth-child(1n+3){ margin-top: 2rem; }
+    &__text{ padding: 0 2rem; }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .cards { justify-content: space-around; }
+  .card { max-width: 45%; }
+}
+
+@media screen and (max-width: 576px) {
+  .card {
+    flex: 0 0 100%;
+    max-width: 100%;
+    align-self: center;
+    text-align: center;
+  }
+}
+
+
