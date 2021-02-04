@@ -54,6 +54,7 @@ function maskInput(el, ev) {
   let numberPattern = /[0-9]/gi;//+7 (000) 000-00-00//\+7\s\(9\d{2}\)\s\d{3}-\d{2}-\d{2}
   let newValue = "";
   if(/\D/.test(ev.data)){
+    
     el.value = el.value.replace(ev.data, ''); 
     return;
   }

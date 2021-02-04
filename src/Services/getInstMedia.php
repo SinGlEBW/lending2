@@ -33,8 +33,8 @@ if($difference->d > 45){
 	}
 }
 
-//$media = getMediaInstagram($objToken->access_token);
-$media = json_decode(file_get_contents('data.json', true));
+$media = getMediaInstagram($objToken->access_token);
+//$media = json_decode(file_get_contents('data.json', true));
 
 
 // $mediaArr = getPhotosInArray($media, 10);//10 объектов с фото.

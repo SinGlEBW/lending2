@@ -44,7 +44,7 @@ function browserSync(){
 function style(cb) {
 
   return pump([
-    src('src/assets/scss/style.scss'),
+    src(['src/assets/scss/style.scss', 'src/assets/scss/404.scss']),
     sourcemaps.init(),
     sass({outputStyle: "compressed"}).on('error',sass.logError),
     mediaGroup(),
@@ -106,8 +106,8 @@ function jsMin(){
 
   return (
     pump([
-      src('src/assets/js/bundle.js'),
-      // buffer(),
+      src(['src/assets/js/bundle.js', 'src/assets/js/checkDevice.js']),
+      buffer(),
       uglify(),
       rename({suffix: '.min'}),
       dest('src/assets/js')
@@ -122,7 +122,11 @@ function build(){
       'src/assets/css/style.min.css',
       'src/assets/fonts/**/*',
       'src/assets/js/bundle.min.js',
-      'src/assets/*.html',
+      'src/assets/js/checkDevice.min.js',
+      'src/config/**/*',
+      'src/services/**/*',
+      'src/views/**/*',
+      'src/*.php',
     ], {base: 'src'})
     .pipe(dest('dist'))
   )

@@ -1,19 +1,9 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="utf-8" >
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1" >
-  <link rel="icon" type="image/png" href="../../assets/img/favicon.png" sizes="144x144" >
-  <link rel="stylesheet" href="../../assets/css/style.min.css" >
-  <script src="../../assets/js/checkDevice.js"></script>
-  <title>Electric Staff</title>
-</head>
-<body>
+<?require_once __DIR__.'/../component/head.php'?>
   <header class="header">
     <div class="header__items">
       <a class="header__phone" href="tel:+79024058000">+7(902)405-80-00</a>
       <div class="social">
-        <a class="social__link" href="#"> 
+        <a class="social__link" href="https://wa.me/message/YQUSCZUJDJJZJ1"> 
           <svg class="social__link-svg svg-whatsapp">
             <defs>
               <linearGradient id="svg-whatsapp__lg" x1="0" y1="1" x2="1" y2="0">
@@ -283,7 +273,4 @@
   
   <script src="../../assets/js/bundle.js" defer></script>
 
-</body>
-
-</html>
-
+<?php require_once __DIR__.'/../component/footer.php'?>
