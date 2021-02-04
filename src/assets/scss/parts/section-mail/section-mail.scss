@@ -1,7 +1,6 @@
 .section-mail {
   position: relative;
   overflow: hidden;
-  border: 2px solid blueviolet;
   
   &::after {
     content: '';
@@ -108,8 +107,6 @@
   100% { left: 90%; }
 }
 
-
-
 @media screen and (max-width: 1171px){
   .section-mail{
     height: 56vw;
@@ -121,6 +118,7 @@
     }
   }
 }
+
 @media screen and (max-width: 992px){
   .section-mail{
     
@@ -136,4 +134,5 @@
     }
   }
 }
+
 @import './mail-popup';

@@ -16,9 +16,8 @@
   padding: 1rem 0;
   opacity: 1;
   transform: translateY(100px);
-  transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: all .4s cubic-bezier(.17,.88,.75,1.36);
   &--active{
-    
     opacity: 1;
     transform: translateY(0);
   }

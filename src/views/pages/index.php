@@ -1,17 +1,12 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
   <meta charset="utf-8" >
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1" >
   <link rel="icon" type="image/png" href="../../assets/img/favicon.png" sizes="144x144" >
   <link rel="stylesheet" href="../../assets/css/style.min.css" >
-  <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
   <script src="../../assets/js/checkDevice.js"></script>
   <title>Electric Staff</title>
-  <script>
-
-  </script>
 </head>
 <body>
   <header class="header">
@@ -98,7 +93,7 @@
           <p class="card__text">Стоимость электромонтажных работ ниже рыночной на 10-15% за счет прямого сотрудничества
             снами – без посредников и без накруток.</p>
         </div>
-        <div class="card card__two" data-aos="fade-up" data-aos-duration="600">
+        <div class="card card__two">
           <svg class="card__svg">
             <use class="card__svg-use" xlink:href="../../assets/img/sprite.svg#cart2"/>
           </svg>          
@@ -106,7 +101,7 @@
           <p class="card__text">Используем в работе инструменты (перфоратор, штроборез, пылесос, высоко-оборотистая
             дрель и т.д.) </p>
         </div>
-        <div class="card card__three" data-aos="fade-up" data-aos-duration="700">
+        <div class="card card__three">
           <svg class="card__svg">
             <use class="card__svg-use" xlink:href="../../assets/img/sprite.svg#cart3"/>
           </svg>   
@@ -114,7 +109,7 @@
           <p class="card__text"> Если вы обнаружите недоработку наших сотрудников, то устранение за наш счет! Однако за
             годы работы таких случаев было не много.</p>
         </div>
-        <div class="card card__four" data-aos="fade-up" data-aos-duration="800">
+        <div class="card card__four">
           <svg class="card__svg">
             <use class="card__svg-use" xlink:href="../../assets/img/sprite.svg#cart4"/>
           </svg>   
@@ -133,9 +128,7 @@
           <span class="section-mail__title-start">ТРЕБУЕТСЯ ВЫЗОВ</span> ЭЛЕКТРИКА НА ДОМ?
         </h1>
         <button class="section-mail__btn" id="js-popup-mail-open">Написать нам</button>
-
         <div class="mail-popup popup" id="js-popup-mail">
-
           <div class="mail-popup__content popup__content" id="js-popup-mail-content">
             <h3 class="mail-popup__title">Отправить заявку на почту</h3>
             <i class="mail-popup__close popup__close" id="js-popup-mail-close"></i>
@@ -287,9 +280,6 @@
   </section>
  
 
-
-  <!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> -->
-  <!-- <script>AOS.init();</script> -->
   
   <script src="../../assets/js/bundle.js" defer></script>
 

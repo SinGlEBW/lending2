@@ -5,5 +5,17 @@
     max-width: 87rem;
     display: block;
     margin: 0 auto;
+ 
+  }
+}
+.gRombus .i{
+  stroke-dasharray: 0 111px 634px 200px 226px 186px;
+  stroke-dashoffset: 444px;
+  animation: movementLine 10s cubic-bezier(.27,-0.2,.56,1) infinite alternate both;
+}
+@keyframes movementLine{
+  100%{
+    stroke-dasharray: 284px 303px 671px 200px 396px 259px 682px;
+    stroke-dashoffset: -411px;
   }
 }
