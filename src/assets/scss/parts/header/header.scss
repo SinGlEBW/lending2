@@ -1,0 +1,325 @@
+.header {
+  height: 8rem;
+  position: fixed;
+  width: 100%;
+  z-index: 5;
+  &__items {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #202127;
+    animation: headerBorder 8s ease alternate infinite;
+  }
+  
+  &__phone {
+    font-family: "Consolas", serif;
+    font-size: 2rem;
+    color: $phone;
+    transition: all 1s linear;
+    position: relative;
+    padding: 10px;
+    text-shadow: 0 0 10px rgba(36, 34, 34, 0.938), 0 0 30px rgba(255, 255, 255, 0.45), 0 0 100px rgba(255, 255, 255, 0.1);
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      transition: transform .5s ease;
+      display: block;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      border-style: solid;
+      border-radius: .4rem;
+      border-color: rgba($color: #0BAAD4, $alpha: .80);
+    }
+    &::before {
+      border-width: 2px 0 2px 0;
+      transform:  scaleX(0);
+    }
+    &::after {
+      border-width: 0 2px 0 2px;
+      transform:  scaleY(0);
+    }
+    &:hover::before, &:hover::after {
+      transform:  scale(1, 1);
+    }
+    
+
+  }
+}
+
+.social {
+  display: flex;
+
+  &__link {
+    display: flex;
+    align-items: center;
+  
+    &-name {
+      font-size: 2rem;
+      font-family: 'GothamPro-Bold', serif;
+      opacity: 0;
+      width: 11.5rem;//зарезервировано под анимацию
+      text-align: center;
+      
+      filter: blur(12px); 
+      letter-spacing: -0.5rem;
+      transition: all .3s linear;
+      &::after {
+        content: '';
+        width: 100%;
+        height: 2px;
+        display: block;
+        transform: translateY(2px);
+        background: linear-gradient(90deg, #303770, #3fc640);
+      }
+
+      &--whatsapp {
+        order: -1;
+        background: linear-gradient(20deg, #303770 20%, #3fc640);
+      }
+
+      &--instagram {
+        order: 1;
+        background: linear-gradient(20deg, #b52ca1 10%, #fed655);
+        &::after { background: linear-gradient(90deg, #b52ca1, #fed655); }
+      }
+
+      &--whatsapp,
+      &--instagram {
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+    }
+  }
+}
+
+.svg-whatsapp, 
+.svg-instagram{
+  max-width: 8rem;
+  max-height: 8rem;
+  outline: none;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.70));
+  &__no-active,
+  &__active{
+    transform-origin: 50% 50%;
+  }
+  &__no-active{
+    fill: #7a7e97;
+  }
+  &__active{
+    opacity: 0;
+    transition: all .2s ease-in;
+  }
+  &:hover &__no-active,
+  &:hover &__active {
+    animation: bounce-top .9s both;
+    opacity: 1;
+  }
+  &:hover ~ .social__link-name {
+    opacity: 1;
+    letter-spacing: normal;
+    filter: blur(0px);
+  }
+}
+
+.price-btn {
+  position: relative;
+  width: 16rem;
+  height: 4.4rem;
+  border-radius: 0.7rem;
+  background-color: #8388A4;
+  color: #fff;
+  font-size: 2rem;
+  overflow: hidden;
+  outline: none;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  transition: all .1s ease-in-out;
+
+  &::before, &::after{
+    content: '';
+    position: absolute;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .2s ease-in-out;
+  }
+  &::before{
+    top: -125%;
+    left: -10%;
+    width: 120%;
+    transform-origin: 20% 50%;
+    transform: rotateZ(-20deg);
+    background-color: rgba($color: #1ABC9C, $alpha: .8);
+  }
+  &::after{
+    content: attr(data-name);
+    left: 0; right: 0;
+    top: 0; bottom: 0;
+    
+  }
+  &:hover::before{
+    top: 0%;
+    transform: rotateZ(0deg);
+  }
+  &:hover::after{ color:#202127; }
+  &:hover{ transform: scale(1.03); }
+}
+
+@mixin borderBottom($color) {
+  border-bottom: 5px solid $color;
+}
+
+@keyframes headerBorder{
+  0% { @include borderBottom(#6c67cf); }
+  30% { @include borderBottom(#CC39A1); }
+  65% { @include borderBottom(#6c67cf); }
+  100% { @include borderBottom(#4b84c8); }
+}
+
+@keyframes text-flicker-in-glow {
+  0% { opacity: 0; }
+  10% { opacity: 0; text-shadow: none; }
+  10.1% { opacity: 1; text-shadow: none; }
+  10.2% { opacity: 0; text-shadow: none; }
+  20% { opacity: 0; text-shadow: none; }
+  20.1% { opacity: 1; text-shadow: 0 0 30px rgba(255, 255, 255, 0.25); }
+  20.6% { opacity: 0; text-shadow: none; }
+  30% { opacity: 0; text-shadow: none; }
+  30.1% { opacity: 1; text-shadow: 0 0 30px rgba(255, 255, 255, 0.45), 0 0 60px rgba(255, 255, 255, 0.25); }
+  30.5% { opacity: 1; text-shadow: 0 0 30px rgba(255, 255, 255, 0.45), 0 0 60px rgba(255, 255, 255, 0.25); }
+  30.6% { opacity: 0; text-shadow: none; }
+  45% { opacity: 0; text-shadow: none; }
+  45.1% { opacity: 1; text-shadow: 0 0 30px rgba(255, 255, 255, 0.45), 0 0 60px rgba(255, 255, 255, 0.25); }
+  50% { opacity: 1; text-shadow: 0 0 30px rgba(255, 255, 255, 0.45), 0 0 60px rgba(255, 255, 255, 0.25); }
+  55% { opacity: 1; text-shadow: 0 0 30px rgba(255, 255, 255, 0.45), 0 0 60px rgba(255, 255, 255, 0.25); }
+  55.1% { opacity: 0; text-shadow: none; }
+  57% { opacity: 0; text-shadow: none; }
+  57.1% { opacity: 1; text-shadow: 0 0 30px rgba(255, 255, 255, 0.55), 0 0 60px rgba(255, 255, 255, 0.35); }
+  60% { opacity: 1; text-shadow: 0 0 30px rgba(255, 255, 255, 0.55), 0 0 60px rgba(255, 255, 255, 0.35); }
+  60.1% { opacity: 0; text-shadow: none; }
+  65% { opacity: 0; text-shadow: none; }
+  65.1% { opacity: 1; text-shadow: 0 0 30px rgba(255, 255, 255, 0.55), 0 0 60px rgba(255, 255, 255, 0.35), 0 0 100px rgba(255, 255, 255, 0.1); }
+  75% { opacity: 1; text-shadow: 0 0 30px rgba(255, 255, 255, 0.55), 0 0 60px rgba(255, 255, 255, 0.35), 0 0 100px rgba(255, 255, 255, 0.1); }
+  75.1% { opacity: 0; text-shadow: none; }
+  77% { opacity: 0; text-shadow: none; }
+  77.1% { opacity: 1; text-shadow: 0 0 30px rgba(255, 255, 255, 0.55), 0 0 60px rgba(255, 255, 255, 0.4), 0 0 110px rgba(255, 255, 255, 0.2), 0 0 100px rgba(255, 255, 255, 0.1); }
+  85% { opacity: 1; text-shadow: 0 0 30px rgba(255, 255, 255, 0.55), 0 0 60px rgba(255, 255, 255, 0.4), 0 0 110px rgba(255, 255, 255, 0.2), 0 0 100px rgba(255, 255, 255, 0.1); }
+  85.1% { opacity: 0; text-shadow: none; }
+  86% { opacity: 0; text-shadow: none; }
+  86.1% { opacity: 1; text-shadow: 0 0 30px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 255, 255, 0.45), 0 0 110px rgba(255, 255, 255, 0.25), 0 0 100px rgba(255, 255, 255, 0.1); }
+  100% { opacity: 1; text-shadow: 0 0 30px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 255, 255, 0.45), 0 0 110px rgba(255, 255, 255, 0.25), 0 0 100px rgba(255, 255, 255, 0.1); }
+}
+
+@keyframes bounce-top {
+  0% { transform: translateY(0px) scale3d(1, 1, 1);
+       animation-timing-function: ease-in;}
+  10% { transform: translateY(-18px); }     
+  30% { transform: scale3d(1.15, 0.85, 1); }
+  40% { transform: translateY(-14px) scale3d(0.90, 1.10, 1);
+        animation-timing-function: ease-in; }
+  50% { transform: scale3d(1.10, 0.90, 1);}
+  65% { transform: translateY(-12px) scale3d(0.95, 1.05, 1);
+        animation-timing-function: ease-in; }
+  75% { transform: scale3d(1.05, 0.95, 1); }
+  82% { transform: translateY(-6px);
+        animation-timing-function: ease-in; }
+  93% { transform: translateY(-4px);
+        animation-timing-function: ease-in; }
+  25%, 55%,75%,
+  87% { transform: translateY(0px);
+        animation-timing-function: ease-out; }
+  100% { transform: translateY(0px) scale3d(1, 1, 1);
+         animation-timing-function: ease-out; }
+}
+
+@keyframes animMenuDots {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+@import './price-list';
+
+@media screen and (max-width: 768px) {
+  .header{
+    height: 0%;
+    transition: all .3s ease-in-out;
+
+    &__items {
+      right: 0;
+      width: 0%;
+      transform-origin: 100% 0;
+      border-radius: 0 0 0 500px;
+      transform: scale(0);
+      transition: all .3s ease-in-out;
+      animation: headerBorder 8s ease alternate infinite;
+    }
+    .btn-burger{
+      position: absolute;
+      z-index: 1;
+      right: 0;
+      top: 100%;
+      height: 4.6rem;
+      width: 4.6rem;
+      padding: .4rem 0;
+      overflow: hidden;
+      display: flex;
+      justify-content: space-evenly;
+      flex-direction: column;
+      align-items: center;
+
+      &__item{
+        margin: 0;
+        padding: 0;
+        height: .6rem;
+        width: 80%;
+        background: $burg-no-active;
+        box-shadow: 0 2px 2px rgba(0,0,0,.4), 0 2px 2px rgba(0,0,0,0.23);
+        transition: all .2s cubic-bezier(0.970, 0.000, 0.395, 0.995);
+        position: relative;
+        left: 0;
+  
+        &::after{
+          content: '';
+          height: inherit;
+          width: 100%;
+          position: absolute;
+          background: $burg-active;
+          box-shadow: inherit;
+          display: block;
+          right: -120%;
+        }
+
+        &--active{ left: -96%; }
+      }
+      &__item:nth-child(1){ transition-delay: 0.1s; }
+      &__item:nth-child(2){ transition-delay: 0.25s; }
+      &__item:nth-child(3){ transition-delay: 0.35s; }
+    }
+
+    &--active{ height: 35%; }
+  }
+
+  .header__items{
+    flex-direction: column;
+    &--active{ 
+      width: 100%;
+      height: 100%;
+      border-radius: 0;
+      transform: scale(1);
+    }
+  }
+}
+
+
+/*
+  autoprefixer в grid имеет баг при использовании repeat(3, 1fr) в grid-template-columns;
+  autoprefixer не работает с justify-content и так же рекомендует использовать 
+  justify-self на дочернем, вместо родительского justify-items
+*/

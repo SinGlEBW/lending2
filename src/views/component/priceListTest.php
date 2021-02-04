@@ -1,3 +1,4 @@
+<!-- Этот кусок для тестов -->
 <div class="price-list" id="js-p-list">
   <div class="price-list__content">
      <h3 class="price-list__title">Прайс лист</h3>
@@ -5,12 +6,6 @@
     <table class="price-list__table" id="js-p-table">
       <tbody class="price-list__table-body" id="js-p-tableBody">
         <?
-        // function console_dir($data){
-        //   if(get_class($data) === 'PDO'){
-        //     $data = get_class_methods($data);
-        //   }
-        //   echo("<script>console.dir(".json_encode($data).");</script>");	
-        // }
           require_once __DIR__.'/../../services/getPriceList.php';
           
           foreach ($objPriceList as $arrTables) {

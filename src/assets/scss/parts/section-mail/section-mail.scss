@@ -1,0 +1,139 @@
+.section-mail {
+  position: relative;
+  overflow: hidden;
+  border: 2px solid blueviolet;
+  
+  &::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    background: rgba($color: #000000, $alpha: .7);
+    z-index: -1;
+  }
+
+  &__picture{
+    position: absolute;
+    z-index: -2;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
+  &__bg-img{ width: 100%; }
+
+  &__bg-video {    
+    position: absolute;
+    z-index: -2;
+    width: 100%;
+  }
+
+  &__rect {
+    max-width: 980%;
+    margin: 10rem 0;
+    border: .8rem solid rgba($color: #fff, $alpha: .1);
+    padding: 11.5rem 0 12rem;
+    text-align: center;
+  }
+  &__title {
+    font-size: 5rem;
+    color: #fff;
+
+    &-start { color: #f96763; }
+  }
+
+  &__btn {
+    max-width: 22rem;
+    width: 100%;
+    height: 5.8rem;
+    margin-top: 9.2rem;
+    position: relative;
+    font-size: 2.4rem;
+    letter-spacing: 1px;
+    color: #f96763;
+    outline: none;
+    background-color: transparent;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.15s;
+    z-index: 2;
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      height: 40%;
+      width: 10%;
+      transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      z-index: 1;
+      border-radius: 50%;
+    }
+    &::before {
+      background-color: #318CE7;
+      top: 0;
+      left: 0;
+      animation: top 2s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.25s infinite alternate;
+    }
+    &::after {
+      background-color: #20B2AA;
+      bottom: 0;
+      left: 0;
+      animation: bottom 2s cubic-bezier(.68,-0.2,.33,1.28) 0.5s infinite alternate;
+    }
+    &:hover { color:#fff; }
+    &:hover::before,
+    &:hover::after {
+      top: 0;
+      height: 100%;
+      width: 100%;
+      border-radius: 0;
+      animation: none;
+     
+    }
+    &:hover::after { left: 0;  z-index: -1;}
+    &:hover::before {
+      z-index: -2;
+      top: 0.5rem;
+      left: 0.35rem;
+    }
+  }
+}
+
+@keyframes top {
+  0% { top: 0; }
+  100% { top: 60%;}
+}
+
+@keyframes bottom {
+  0% { left: 0; }
+  100% { left: 90%; }
+}
+
+
+
+@media screen and (max-width: 1171px){
+  .section-mail{
+    height: 56vw;
+   
+    &__rect{
+      height: 39vw;
+      margin: 8vw 0;
+      
+    }
+  }
+}
+@media screen and (max-width: 992px){
+  .section-mail{
+    
+  
+    &__rect{ padding: 11rem * 100% / 99.2rem 3rem;}
+             
+    &__title { font-size: 5vw; }
+    &__btn {
+      max-width: 22vw;
+      height: 5.8vw;
+      margin-top: 7rem * 100% / 99.2rem;
+      font-size: 2.4vw;
+    }
+  }
+}
+@import './mail-popup';

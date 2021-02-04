@@ -9,8 +9,6 @@
 				 url('#{$url}/#{$font-family}.svg#C') format('svg'); /* Legacy iOS */
 		font-weight: $font-weight;
 		font-style: normal;
-
-	
 	}	
 }
 // Шрифты подключаются относительно папки css, а не scss 
@@ -28,3 +26,7 @@
 @include font-face('PFEncoreSansPro-Medium', '../fonts/PFEncoreSansPro/Medium', normal);
 @include font-face('PFEncoreSansPro-Thin', '../fonts/PFEncoreSansPro/Thin', normal);
 @include font-face('TrueLies', '../fonts/TrueLies', normal);
+
+
+
+

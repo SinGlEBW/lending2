@@ -1,36 +1,23 @@
-import axios from 'axios';
 import { preloaderTable } from './preloader';
+import { popup } from './popup';
+import { protocol, host, port } from '../../../config/config.json';
 
-let priceBtn = document.querySelector('#js-btn-ajax');
-let priceList = document.querySelector('#js-p-list');
-let priceClose = document.querySelector('#js-p-close');
+let priceBtn = document.querySelector('#js-popup-pl-open');
+let priceList = document.querySelector('#js-popup-pl');
 let priceTable = document.querySelector('#js-p-table');
 let tableBody = document.querySelector('#js-p-tableBody');
-let saveScrollToTheOpen;
 
-priceBtn.addEventListener('click', openPrice);
-priceList.addEventListener('click', closePrice);
+popup(priceList, priceBtn, {noBlockEl: priceTable, opened: ajaxRequestTable})
 
-function openPrice(ev) {
-  priceList.style.display = "flex"; 
-  saveScrollToTheOpen = window.scrollY;
-  lockScroll();
-  ajaxRequestTable();
-}
 
-function closePrice(ev) {
-  if(ev.target == priceList || ev.target == priceClose){
-    priceList.style.display = "none"; 
-    unlockScroll()
-  }
-}
 /*########---------<{ Main Function }>---------#########*/
 
 function ajaxRequestTable(){
   if(!tableBody.children.length){
     tableBody.innerHTML = preloaderTable();
-    axios.get('http://localhost:8080/table')
-    .then(({data}) => {
+    fetch(`${protocol}://${host}:${port}/table`)
+    .then((data) => data.json())
+    .then((data)=>{
       tableBody.innerHTML = '';
       renderTable(data);
     })
@@ -101,40 +88,5 @@ function hangTheFunctionality(){
     return arr.reduce((prev, num) => (prev += +num), 0);
   }
 }
-
-/*------------------------------------------------------------------------------------*/
-/*#######---------<{ Control Scroll}>---------##########*/
-function lockScroll() {
-  console.dir('создание');
-  window.addEventListener('wheel', evWheel, { passive: false })
-  window.addEventListener('scroll', evScroll) 
-}
-
-function unlockScroll() {
-  console.dir('удаление');
-  window.removeEventListener('wheel', evWheel, { passive: false })
-  window.removeEventListener('scroll', evScroll)
-}
-
-function evWheel(ev) {
-  if(!priceTable.contains(ev.target)){
-    console.dir('Wheel');
-    ev.preventDefault(); return; 
-  }
-
-  this.scrollTo(0, saveScrollToTheOpen);
-} 
-
-function evScroll(ev) {
-  console.dir('Scroll');
-  this.scrollTo(0, saveScrollToTheOpen)
-} 
-/*------------------------------------------------------------------------------------------*/
-
-
-
-
-
-
 
 

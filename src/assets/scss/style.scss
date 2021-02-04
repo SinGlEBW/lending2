@@ -19,24 +19,24 @@ body{
   max-width: $c-size;
   margin: 0 auto;
   padding: 0 $c-padding;
-  border: 1px solid red;
+  
   height: 100%;
-  // overflow: hidden;
+  overflow: hidden;
   position: relative;
 }
 
 
 
 @import './general-style';
+@import './lib/popup';
 
-
+@import './parts/header/header';
 @import './parts/main';
-@import './parts/header';
 @import './parts/advantages/advantages';
-@import './parts/city';
+@import './parts/section-mail/section-mail';
 @import './parts/steps';
-@import './parts/quality';
-@import './parts/sliders/slider-Inst';
+@import './parts/quality/quality';
+@import './parts/instagram/slider-Inst';
 @import './parts/y-map.scss';
 
 

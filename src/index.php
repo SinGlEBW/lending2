@@ -9,6 +9,8 @@
     return;
   }elseif($path[0] == 'table'){
     require_once __DIR__.'/services/getPriceList.php';
+  }elseif($path[0] == 'mail'){
+    require_once __DIR__.'/services/sendMail.php';
   }else{
     require_once __DIR__.'/views/pages/404.php';
   }

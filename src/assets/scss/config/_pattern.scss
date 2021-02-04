@@ -1,13 +1,27 @@
-%flexCenter{
+%flexCenterAllAxes{
   display: flex;
   justify-content: center;
   align-items: center;
 }
+%flexColumn{
+  display: flex;
+  flex-direction: column;
+}
+%flexWrap{
+  display: flex;
+  flex-wrap: wrap;
+}
+
 %flexRowBetween{
   display: flex;
   justify-content: space-between;
 }
+
+%afBefAbs{
+  content: '';
+  position: absolute;
+}
 /*
   Шаблон подключается 
-  @extend %flexCenter
+  @extend %flexCenterAllAxes
 */

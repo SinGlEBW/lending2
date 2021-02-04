@@ -1,0 +1,80 @@
+.popup{
+  position: fixed;
+  z-index: 3;
+  top: 0; bottom: 0;
+  left: 0;
+  right: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: rgba($color: #000000, $alpha: .6);
+  backdrop-filter: blur(10px);
+  
+  &__content {
+    flex-basis: 100%;
+    max-width: $p-maxWidth;
+    color: #dc143c;
+    background: rgba($color: $pl-bg, $alpha: .80);
+    padding: 2rem;
+    font-size: 2em;
+    border-radius: .5rem;
+    box-shadow: 0 0 4px 1px black;
+    position: relative;
+    animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  }
+  
+  &__title {
+    text-align: center;
+    padding: 0 0 1rem;
+  }
+  
+  &__close{
+  position: absolute;
+  width: 3.2rem;
+  height: 3.2rem;
+  right: 2rem;
+  top: 1.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 13%;
+        background-color: #d6d6d6;
+        transition: all linear .1s;
+    }
+    &::before {
+      transform: rotate(45deg);
+    }
+    &::after {
+      transform: rotate(-45deg);
+    }
+    &:hover::before, &:hover::after{
+      width: 110%;
+      height: 17%;
+      background-color: crimson;
+    }
+  }
+}
+
+@keyframes slide-in-top {
+  0% {
+    transform: translateY(-1000px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+/*
+  display: none нельзя анимировать. Наложенный на дочерний элемент transition со свойством transform так же
+  не про анимируют, но если воспользоваться keyframe то анимация будет. Единственное не запутаться с классами 
+  использующие transform.
+  Можно применять несколько animation со свойствами transform. свойство transform друг другу не мешают.
+*/

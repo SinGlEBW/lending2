@@ -1,0 +1,189 @@
+.price-list{
+  &__content{
+    
+  }
+  &__title{}
+  &__close{}
+
+  &__table {
+    position: relative;
+    height: 60rem;
+    
+    overflow: auto;
+    border-radius: .5rem;
+
+    &-body{
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba($color: $pl-bg, $alpha: .95); 
+      padding: 0 1rem;
+    }
+  }
+ 
+  &__cell-head-title { padding: 1rem 0;}
+  &__cell-info{ 
+    width: 100%;//растянет всю таблицу. задаётся любой td
+    text-align: center; 
+    background: rgba($color: #000, $alpha: .8);
+    font-weight: bold;
+    letter-spacing: .1rem;
+  }
+
+  &__cell-info,
+  &__cell {
+    word-wrap: break-word;
+    padding: 1rem;
+    &:nth-child(1){
+      border-bottom: 2px solid #000;
+      border-left: 2px solid #000;
+     }
+    &+&{
+      white-space: nowrap;
+      background: rgba($color: #000, $alpha: .8);;
+      text-align: center;
+    }
+  }
+
+  &__input{
+    width: 100%;
+    border-radius: .5rem;
+ 
+    padding: 0 .7rem;
+    border: none;
+    background-color: ivory;
+    &:enabled{
+      outline-color: #dc143c;
+    }
+  }
+
+
+  &__out {
+    text-align: right;
+    padding: 1rem 3rem 0;
+  }
+  &__total { padding-right: 1rem; }
+  &__result {
+    &::after{ content: '\00A0руб.'; }
+  }
+}
+
+
+
+@media screen and (max-width: 768px){
+  .price-list{
+    &__content{
+      font-size: 2.6vw;
+    }
+    &__table{
+      height: 90vw;
+    }
+  }
+}
+@media screen and (max-width: 576px){
+  .price-list{
+    &__content{
+      font-size: 3.2vw;
+    }
+
+    &__row-info,
+    &__row{
+      display: flex;
+      flex-wrap: wrap;
+    }
+    &__cell-info,
+    &__cell{
+      &:nth-child(1){
+        flex-basis: 100%;
+        border-right: 1px solid #000;
+      }
+      &+&{
+        width: 25%;
+        border-right: 1px solid #000;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+/*
+.price-list{
+  position: fixed;
+  top: 0; bottom: 0;
+  right: 0; left: 0;
+  background-color: rgba($color: #000000, $alpha: .4);
+  
+  $maxWidth: 80rem;
+  &__content {
+    max-width: $maxWidth;
+    color: crimson;
+    border: 2px solid blueviolet;
+    padding: 2rem;
+    font-size: 2rem;
+    background-color: #f1f1f1;
+   
+  }
+  &__title {
+    text-align: center;
+    padding: 1rem 0;
+    border: 2px solid blue;
+  }
+  &__table {
+    border: 2px solid cadetblue;
+    position: relative;
+    padding-top: 60rem * 100% / $maxWidth;
+    display: block;
+    overflow: auto;
+
+    &-body{
+      position: absolute;
+      top: 0;
+      left: 0;right: 0;
+      border: 2px solid tomato;
+      background-color: rgb(161, 159, 159);
+      
+    }
+  }
+ 
+  &__row-head-title {
+    display: flex;
+    justify-content: center;
+    border: 1px solid #000;
+  }
+
+  &__cell-head-title {
+    border: 1px solid #000;
+    padding: 1rem 0;
+  }
+
+  &__cell-info:nth-child(1){
+    text-align: center;
+  }
+  &__row-info,
+  &__row { display: flex;   margin: .3rem 0;}
+  &__cell-info,
+  &__cell {
+    &:nth-child(1){ flex-grow: 1; border: 2px solid #000;}
+    &+&{
+     
+      
+      margin-left: .3rem; 
+      flex-basis: 17%;;
+      background: #000;
+      text-align: center;
+    }
+  }
+
+  &__input{
+    width: 100%;
+    height: 100%;
+    padding: 0 .7rem;
+    border: none;
+  }
+}
+*/

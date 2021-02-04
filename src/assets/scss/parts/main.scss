@@ -10,11 +10,21 @@
 }
 
 .main__inner { display: grid; }
-.main__top { margin-top: .5rem; }
+.main__top { 
+  margin-top: .5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .logo__svg { 
   max-width: 15rem;
   &-use{}
-
+}
+.main__city{
+  font-size: 3rem;
+  color: #dddddd;
+  font-family: "MyriadPro-BoldIt";
+  text-shadow: 0 0px 13px rgba(255, 255, 255, 0.753);
 }
 .main__middle { padding-top: 6.5rem; }
 
@@ -22,11 +32,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   &::before,
   &::after {
     content: '';
-    flex-basis: 10.7%;
+    flex-basis: 10%;
     height: .8rem;
     background: #fff;
     opacity: .2;
@@ -36,15 +46,22 @@
 
 }
 .main__title {
-  flex-basis: 60%;
-  font-family: 'PFEncoreSansPro-Bold', serif;
+  flex-basis: 75%;
+  font-family: 'TrueLies', serif;
   font-size: 5.7rem;
+  letter-spacing: 1rem;
+  padding: 0 2.5rem;
+  line-height: 150%;
   text-transform: uppercase;
   color: $h1title;
   display: flex;
   align-items: center;
+ 
+  &::before{
+    content: 'ЭЛЕКТРО/';
+    color: $h1title-pref;
+  }
 
-  &-start { color: $h1title-pref; }
 }
 
 .main__slogan {
@@ -57,23 +74,22 @@
   letter-spacing: .1rem;
 }
 
+@media screen and (max-width: 936px) {
 
-@media screen and (max-width: 1070px) {
- .main__title{}
+  .main__title-box{
+    &::before, &::after{ display: none; } 
+  }
+  .main__title{ font-size: 5.8vw; }
+
 }
 
 @media screen and (max-width: 768px) {
-  .main{
-    padding-top: 0;
-  }
-  .main__title-box{
-    &::before,&::after{
-      display: none;
-    } 
-  }
+  .main{ padding-top: 0; }
   .main__title{
-    flex-basis: 90%;
-    font-size: 7.3vw;
+    flex-direction: column;
+    text-align: center;
+    font-size: 8vw;
+    &::before{ content: 'ЭЛЕКТРО'; }
   }
 }
 

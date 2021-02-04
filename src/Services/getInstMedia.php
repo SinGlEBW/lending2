@@ -1,4 +1,5 @@
 <?
+
 require_once __DIR__.'/db_connect.php';
 $PDO = connect('instagram');
 
@@ -13,7 +14,6 @@ $difference = $dateTime->diff(new DateTime($objToken->token_date));
 if($difference->d > 45){
 	$newObjToken = refreshTokenInstagram($objToken->access_token);
 	console_dir($newObjToken);
-	var_dump($newObjToken);	
 	// $newObjToken - { "access_token": "{access-token}", "token_type": "{token-type}", "expires_in": {expires-in} }
 	echo "1 этап</br>";
 	$flag = false;
@@ -33,18 +33,13 @@ if($difference->d > 45){
 	}
 }
 
+//$media = getMediaInstagram($objToken->access_token);
+$media = json_decode(file_get_contents('data.json', true));
 
 
-//  $media = getMediaInstagram($objToken->access_token);
- $media = json_decode(file_get_contents('data.json', true));
-
-
-//  console_dir($data);
-// //  console_dir($mediaArr);
-
-// //  $mediaArr = getPhotosInArray($media, 10);//10 объектов с фото.
-// /*---------------------------------------------------------------------------------------------------------*/
-// /*---------------------------------------------------------------------------------------------------------*/
+// $mediaArr = getPhotosInArray($media, 10);//10 объектов с фото.
+/*---------------------------------------------------------------------------------------------------------*/
+/*---------------------------------------------------------------------------------------------------------*/
 function getPhotosInArray($media, $photoCount){
 
 	$instMedias = [];
@@ -126,28 +121,3 @@ function console_dir($data){
 }
 /*---------------------------------------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------------------------------------*/
-
-
-
-
-
-
-
-
-
-
-
-// $PDOStatement2 = $PDO->query("DELETE FROM token WHERE access_token='ddddd'");
-// $PDOStatement2 = $PDO->query("ALTER TABLE token AUTO_INCREMENT=1");
-
-// $PDOStatement2 = $PDO->query("INSERT INTO token(access_token) VALUES(222222222222222)");
-// $PDOStatement2->closeCursor();
-// $PDOStatement2 = $PDO->query("SELECT * FROM token WHERE id=(SELECT max(id) FROM token)");
-// $objToken2 = $PDOStatement2->fetch();
-
-//IGQVJWWWlLQ0p2TjVDeEQxdXFQSUVkMmpNZAHVuajRyZAm94ckZAPY1FHQVRycHI0N3BQZAEJGZAHpwUWVsXzAzbXlzelQ3YXN4a3JtTHJYbDEwSzR0UnpILVdFVDBtWC1DOVRtLUZAJNXNRcWdGQ2o0MjAyaAZDZD
-
-//IGQVJWcTdjZAUpmLXBJM3gyVUE5OXJ3NU03blg2ZAWRFZATVocWtHeHNUWkZAJSzRNZA1luRERtZAktnUWhKZAVNqMnhCd2tDbHJmNTZAWTTRYdk9hQXBKVlZAPdG1zeDZAKZADNuNF9lSmRxTGZAB
-
-
-?>

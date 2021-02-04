@@ -1,0 +1,103 @@
+.inst{
+  background: linear-gradient(to bottom, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+  &__sliders {
+    margin: 5rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;  
+  }
+
+  &__slider {
+    flex-basis: 49%;
+    overflow: hidden;
+    background-color: $i-bg-s;
+    border-radius: .5rem;
+    border: 2px solid #232424;
+    &:nth-child(1n+3){ margin-top: 2rem; }
+    &-items {
+      height: 40rem;
+      display: flex;
+      transition: transform 2s ease;
+    }
+    &-item {
+      flex: 0 0 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: center center; 
+    } 
+  }
+
+  &__indicators {
+    padding: 2rem 0;
+    display: flex;
+    justify-content: center;
+ 
+    & li{
+      width: 1.6rem;
+      height: 1.6rem;
+      border-radius: 50%;
+      cursor: pointer;
+      background-color: $i-indicators;
+      opacity: .5;
+      transition: opacity .6s ease;
+      &+li{ margin-left: 1.5rem; }
+    }
+    & li.active { opacity: 1; }
+  }
+
+  &__caption {
+    margin: 0;
+    font-size: 2em;
+    font-weight: 700;
+    padding: 1rem 1.5rem 2rem;
+    text-align: center;
+    color: $i-text;
+    position: relative;
+    
+    &::before{
+      content: '';
+      position: absolute;
+      display: block;
+      margin: 0 auto;
+      top: 0;
+      left: 0; right: 0;
+      filter: blur(1px);
+      background: linear-gradient(45deg, #FFDC55, #EF4D58, #623ECB);
+      border-radius: 200%;
+      width: 95%;
+      height: 5px;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px){
+  .inst{
+    &__slider{
+      &-items{ height: 40vw; }
+    }
+  }
+}
+@media screen and (max-width: 768px){
+  .inst{
+    &__sliders{
+      margin: 3rem 0;
+    }
+    &__slider{
+      flex-basis: 100%;
+      &+&{ margin-top: 2rem; }
+      &-items{ height: 50vw; }
+    }
+    &__indicators {
+      & li{
+        // width: 2rem;
+        // height: 2rem;
+        &+li{ margin-left: 2.3rem; }
+      }
+    }
+  }
+}
+
+
+
+

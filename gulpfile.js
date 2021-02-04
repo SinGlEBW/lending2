@@ -1,13 +1,14 @@
 require('dotenv').config();
 const { src, dest, series, parallel, watch } = require('gulp');
 const fs = require('fs');
+const path = require('path');
 const del = require('del');
 const pump = require('pump');
 const bs = require('browser-sync');
 
 const sass = require('gulp-sass');
 const mediaGroup = require('gulp-group-css-media-queries');
-const uglifyCSS = require('gulp-uglifycss');/*требуется потому что sass compress снимает gulp-group */
+const miniCSS = require('gulp-clean-css');/*требуется потому что sass compress снимает gulp-group */
 
 const rename = require('gulp-rename');
 const sourcemaps = require('gulp-sourcemaps');
@@ -47,11 +48,11 @@ function style(cb) {
     sourcemaps.init(),
     sass({outputStyle: "compressed"}).on('error',sass.logError),
     mediaGroup(),
-
     autoprefixer({
       cascade: false,
       grid: true,
     }),
+    miniCSS(),
     rename({suffix: '.min'}),
     sourcemaps.write('./sourcemap'),
     dest('src/assets/css')
@@ -59,19 +60,31 @@ function style(cb) {
 }
 
 function script(e) {
+
+  function getFiles(basedirJS){
+    return fs.readdirSync(basedirJS).reduce((prev, item) => {
+      
+      if(item.endsWith('.js')){
+          return [...prev, {file: `${__dirname}\\${basedirJS}\\${item}` }]
+      }else{
+       return [...prev, ...getFiles(`${basedirJS}\\${item}`)]
+      }
+     },[])
+  }
  
- let jsFile = fs.readdirSync('src/assets/js/dev');
- 
+
   return pump([
     
     browserify({
-      entries: jsFile,
-      basedir: "src/assets/js/dev",
+      entries: getFiles('src\\assets\\js\\dev'),
       debug: true,
     })
+   
     .transform(babelify, {
       presets: ['@babel/preset-env'],
+      plugins: ["@babel/plugin-proposal-class-properties"]
     })
+   
     .bundle((err)=>{
       let event = new EventEmitter();
       if(err){
@@ -135,7 +148,7 @@ function images(){
 
 function watching() {
   watch('**/*.scss', style).on('change', bs.reload);
-  watch('**/js/dev/*.js', script)
+  watch('**/js/dev/**/*.js', script)
   watch('**/*.html').on('change', bs.reload)
   watch('**/*.php').on('change', bs.reload).on('error', bs.reload)
 };
