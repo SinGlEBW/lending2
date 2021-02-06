@@ -1,9 +1,8 @@
 <?
 
 require_once __DIR__.'/db_connect.php';
-$PDO = connect('instagram');
 
-$PDOStatement = $PDO->query("SELECT * FROM token WHERE id=(SELECT max(id) FROM token)");
+$PDOStatement = $PDO->query("SELECT * FROM instagram_token WHERE id=(SELECT max(id) FROM instagram_token)");
 $objToken = $PDOStatement->fetch();//почему-то нельзя 2 раза обращаться к fetch подомным методам
 $PDOStatement->closeCursor();// соединение вроде автоматом закрывается, но всё же закрою.
 
@@ -18,13 +17,13 @@ if($difference->d > 45){
 	echo "1 этап</br>";
 	$flag = false;
 	if(isset($newObjToken)){//
-		$PDOStatement = $PDO->prepare('INSERT INTO token(access_token) VALUES(:access_token)');
+		$PDOStatement = $PDO->prepare('INSERT INTO instagram_token(access_token) VALUES(:access_token)');
 		$flag = $PDOStatement->execute(['access_token' => $newObjToken->access_token]);//в php в if это не локальное видимо пространство
 	}	
 	
 	if($flag){
 		echo "2 этап</br>";
-		$PDOStatement = $PDO->query("SELECT * FROM token WHERE id=(SELECT max(id) FROM token)");
+		$PDOStatement = $PDO->query("SELECT * FROM instagram_token WHERE id=(SELECT max(id) FROM instagram_token)");
 		$objToken = $PDOStatement->fetch();//почему-то нельзя 2 раза обращаться к fetch подомным методам	
 		$PDOStatement->closeCursor();	
 	}else{

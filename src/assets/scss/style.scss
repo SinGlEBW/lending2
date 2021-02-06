@@ -19,17 +19,16 @@ body{
   max-width: $c-size;
   margin: 0 auto;
   padding: 0 $c-padding;
-  
   height: 100%;
   overflow: hidden;
   position: relative;
+  
 }
 
 
 
 @import './general-style';
 @import './lib/popup';
-
 @import './parts/header/header';
 @import './parts/main';
 @import './parts/advantages/advantages';

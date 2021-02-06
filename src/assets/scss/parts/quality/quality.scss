@@ -58,7 +58,8 @@
 }
 @media screen and (max-width: 768px){
   .quality{
-    &__item-img { width: 50%;
+    &__item-img {
+      width: 50%;
       &::after{ font-size: 2.9vw; }
       &:nth-child(1n+3){
         margin-top: 2rem;
@@ -68,11 +69,15 @@
 }
 @media screen and (max-width: 576px){
   .quality{
-    &__item-img { width: 100%;
+    &__item-img {
+      width: 100%;
       &::after{ font-size: 3.1vw; }
       &:nth-child(1n+3){
         margin-top: 0;
       } 
+    }
+    &__top-box > .description{
+      padding: 0;
     }
   }
 }

@@ -17,7 +17,7 @@ function sendMail(ev){
    
   console.dir('успех');
 
-  fetch(`${protocol}://${host}:${port}/mail`, {
+  fetch(`${protocol}://${host}${port}/mail`, {
     method: 'POST',
     body: new FormData(this)
   })
@@ -34,6 +34,7 @@ function sendMail(ev){
 let msg = `<div class="mail-popup__form-success-msg">Письмо доставлено</div>`;
 
 function success(data){
+  console.info(data);
   mailForm.classList.add('mail-popup__form--success');
   let timing = parseFloat(getComputedStyle(mailForm).transitionDuration);
 

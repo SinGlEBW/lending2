@@ -1,4 +1,7 @@
 <?php require_once __DIR__.'/../component/head.php'?>
+  <link rel="stylesheet" href="../../assets/css/404.min.css" >
+</head>
+<body>
 <div class="background">
 	<div class="ground"></div>
 </div>

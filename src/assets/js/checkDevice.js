@@ -14,7 +14,6 @@ document.onreadystatechange = function(ev){
     }
   }
  
- 
   /*document.readyState состояние загрузки документа: "loading"-ещё грузит, "interactive" - DOM построен ресурсы грузит, "complete" - всё загружено*/
 
 }

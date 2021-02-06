@@ -1,4 +1,13 @@
-<?require_once __DIR__.'/../component/head.php'?>
+<?require_once __DIR__.'/../component/head.php';?>
+  <link rel="stylesheet" href="../../assets/css/style.min.css" >
+  <script src="../../assets/js/checkDevice.min.js"></script>
+  <script src="//code.jivosite.com/widget/ZNPZNVUfne" async></script>
+  <meta property="og:title" content="Elektrik Staff">
+  <meta property="og:url" content="https://elektrikstaff.ru">
+  <meta property="og:image" content="https://elektrikstaff.ru/assets/img/logo.jpg">
+  <meta property="og:description" content="Выполняем электро-монтажные работы в Краснодаре">
+</head>
+<body>
   <header class="header">
     <div class="header__items">
       <a class="header__phone" href="tel:+79024058000">+7(902)405-80-00</a>
@@ -271,6 +280,6 @@
  
 
   
-  <script src="../../assets/js/bundle.js" defer></script>
+  <script src="../../assets/js/bundle.min.js" defer></script>
 
 <?php require_once __DIR__.'/../component/footer.php'?>

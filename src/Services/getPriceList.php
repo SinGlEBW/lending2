@@ -1,7 +1,7 @@
 <?php
 
 require_once __DIR__.'/db_connect.php';
-$PDO = connect('price_list');
+// $PDO = connect('price_list');
 $tables = ["black_work", "clean_work", "cable_laying", "low_volt_system", "retro_wiring", "pipe_install"];
 $queryStr = "";
 

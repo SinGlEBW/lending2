@@ -15,7 +15,7 @@ popup(priceList, priceBtn, {noBlockEl: priceTable, opened: ajaxRequestTable})
 function ajaxRequestTable(){
   if(!tableBody.children.length){
     tableBody.innerHTML = preloaderTable();
-    fetch(`${protocol}://${host}:${port}/table`)
+    fetch(`${protocol}://${host}${port}/table`)
     .then((data) => data.json())
     .then((data)=>{
       tableBody.innerHTML = '';
@@ -30,12 +30,15 @@ function ajaxRequestTable(){
   }else console.dir('Данные уже загружены'); 
 }
 
+
+
+
 /*#######------<{ renderTable and hangTheFunctionality }>--------#######*/
 
 function renderTable(data){
   for (const arrTables of data) {
-
-    if(arrTables.id === 1) {  
+    console.dir(arrTables);
+    if(Number(arrTables.id) === 1) {  
       tableBody.innerHTML +=  
       `<tr class="price-list__row-head-title" >
         <th class="price-list__cell-head-title" colspan="4">${arrTables.services}</th>

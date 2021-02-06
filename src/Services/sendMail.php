@@ -26,7 +26,7 @@ $mail->Password = 'artemev111';
 $mail->Port = 465;
 
 $mail->setFrom('krastikra26@mail.ru'); // от кого (email и имя)
-$mail->addAddress('bw.klan@mail.ru');  // кому (email и имя)elektrik-staff@mail.ru'
+$mail->addAddress('elektrik-staff@mail.ru');  // кому (email и имя)
 $mail->Subject = 'Заявка с сайта'; //тема письма
 
 $mail->msgHTML("<h4>Имя: 

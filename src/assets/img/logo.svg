@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 300">
+  <title>logoFinish</title>
+  <rect width="450" height="300" style="fill: #16171d"/>
+  <g>
+    <line x1="276.622" y1="244.758" x2="392.161" y2="244.758" style="fill: none;stroke: #eef1f1;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 2px"/>
+    <text transform="translate(274.395 235.48)" style="isolation: isolate;font-size: 61.270652770996094px;fill: #eef1f1;font-family: PFEncoreSansPro-Thin, PF Encore Sans Pro;font-weight: 200">Staff</text>
+  </g>
+  <g>
+    <path d="M126.376,175.675l69.083-39.826,69.083,39.826v79.5L195.459,295l-69.083-39.826Z" style="fill: #fc635e;stroke: #fe8682;stroke-width: 5px;fill-rule: evenodd"/>
+    <text transform="matrix(0.891, 0.334, -0.351, 0.936, 160.145, 234.623)" style="isolation: isolate;font-size: 90.7176284790039px;fill: #f3fdff;stroke: #16171d;stroke-miterlimit: 10;stroke-width: 2px;font-family: TrueLies, True Lies">S</text>
+  </g>
+  <line x1="200.361" y1="111.801" x2="382.923" y2="111.801" style="fill: none;stroke: #eef1f1;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 2px"/>
+  <g>
+    <path d="M50.247,43.943,119.33,4.118l69.083,39.825v79.5L119.33,163.268,50.247,123.442Z" style="fill: #fc635e;stroke: #fe8682;stroke-width: 5px;fill-rule: evenodd"/>
+    <text transform="translate(89.799 108.81) scale(0.9 1)" style="isolation: isolate;font-size: 76.58831024169922px;fill: #16171d;stroke: #16171d;stroke-miterlimit: 10;stroke-width: 2px;font-family: TrueLies, True Lies">E</text>
+  </g>
+  <text transform="translate(201.274 103.516)" style="font-size: 61.27000045776367px;fill: #eef1f1;font-family: PFEncoreSansPro-Thin, PF Encore Sans Pro;font-weight: 200">Elekt<tspan x="122.905" y="0" style="letter-spacing: -0.009977609277503068em">r</tspan><tspan x="140.368" y="0">ik</tspan></text>
+</svg>

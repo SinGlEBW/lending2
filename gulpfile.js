@@ -16,6 +16,7 @@ const autoprefixer = require('gulp-autoprefixer');
 
 const babelify = require('babelify');
 const uglify = require('gulp-uglify');
+const uglifyES = require('gulp-uglify-es').default;
 const buffer = require('vinyl-buffer');
 const browserify = require('browserify');
 const source = require('vinyl-source-stream');
@@ -93,10 +94,9 @@ function script(e) {
       }
     }),
     
-    source('bundle.js'),
+    source('bundle.min.js'),
     buffer(),
-    // sourcemaps.init({ loadMaps: true }),
-    // sourcemaps.write('./sourcemap'),
+    // uglify(), 
     dest('src/assets/js').on('data', bs.reload)
     
   ])
@@ -106,9 +106,22 @@ function jsMin(){
 
   return (
     pump([
-      src(['src/assets/js/bundle.js', 'src/assets/js/checkDevice.js']),
+      src(['src/assets/js/bundle.min.js']),
+      sourcemaps.init({ loadMaps: true }),
       buffer(),
-      uglify(),
+      uglify(), 
+      // rename({suffix: '.min'}),
+      sourcemaps.write('./sourcemap'),
+      dest('src/assets/js')
+    ])
+  )
+}
+function jsMin2(){
+
+  return (
+    pump([
+      src(['src/assets/js/checkDevice.js']),
+      uglifyES(),
       rename({suffix: '.min'}),
       dest('src/assets/js')
     ])
@@ -119,13 +132,14 @@ function build(){
   
   return (
     src([
-      'src/assets/css/style.min.css',
+      'src/assets/css/**/*',
       'src/assets/fonts/**/*',
-      'src/assets/js/bundle.min.js',
-      'src/assets/js/checkDevice.min.js',
+      'src/assets/js/*.min.js',
+      'src/assets/js/sourcemap/*.min.js.map',
       'src/config/**/*',
       'src/services/**/*',
       'src/views/**/*',
+      'src/.htaccess',
       'src/*.php',
     ], {base: 'src'})
     .pipe(dest('dist'))
@@ -164,7 +178,7 @@ exports.style = style;
 exports.script = script;
 exports.jsMin = jsMin;
 
-exports.build = series(()=>del('dist'), jsMin, build, images);
+exports.build = series(()=>del('dist'), parallel(jsMin, jsMin2), build, images);
 exports.default = parallel( style, script, browserSync, watching )
 
 
