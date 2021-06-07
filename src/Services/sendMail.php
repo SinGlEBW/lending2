@@ -1,10 +1,11 @@
 <?
-//Подключаем библиотеку PHPMailer
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
+
 require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
 require 'PHPMailer/src/Exception.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
 
 $client = htmlspecialchars($_POST['name']);
 $phone = htmlspecialchars($_POST['phone']);
@@ -22,7 +23,7 @@ $mail->CharSet = "UTF-8";
 $mail->setLanguage('ru', 'PHPMailer/language/');
 $mail->Host = 'ssl://smtp.mail.ru';
 $mail->Username = 'krastikra26@mail.ru';
-$mail->Password = 'artemev111';
+$mail->Password = '111';
 $mail->Port = 465;
 
 $mail->setFrom('krastikra26@mail.ru'); // от кого (email и имя)

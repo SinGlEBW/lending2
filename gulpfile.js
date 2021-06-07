@@ -34,9 +34,9 @@ function browserSync(){
       notify: false,
       scrollProportionally: false,
       online: true,
-      proxy: 'len.loc',
-      port: 8080,
-      host: "192.168.1.65"
+      proxy: 'http://localhost:4000',
+      port: 3000,
+      // host: "192.168.1.65"
      
     })
   )
@@ -178,7 +178,7 @@ exports.style = style;
 exports.script = script;
 exports.jsMin = jsMin;
 
-exports.build = series(()=>del('dist'), parallel(jsMin, jsMin2), build, images);
+exports.build = series(()=>del('dist'),style, script, parallel(jsMin, jsMin2), build, images);
 exports.default = parallel( style, script, browserSync, watching )
 
 

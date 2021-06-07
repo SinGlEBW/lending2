@@ -1,11 +1,21 @@
 <?require_once __DIR__.'/../component/head.php';?>
+  <link rel="preload" as="font" href="../../assets/fonts/Consolas/Consolas.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="../../assets/fonts/GothamPro/GothamPro-Bold.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="../../assets/fonts/MyriadPro/BoldIt/MyriadPro-BoldIt.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="../../assets/fonts/MyriadPro/Regular/MyriadPro-Regular.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="../../assets/fonts/PFEncoreSansPro/Bold/PFEncoreSansPro-Bold.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="../../assets/fonts/PFEncoreSansPro/Light/PFEncoreSansPro-Light.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="../../assets/fonts/PFEncoreSansPro/Medium/PFEncoreSansPro-Medium.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="../../assets/fonts/PFEncoreSansPro/Thin/PFEncoreSansPro-Thin.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="../../assets/fonts/TrueLies/TrueLies.woff2" type="font/woff2" crossorigin>
+
   <link rel="stylesheet" href="../../assets/css/style.min.css" >
   <script src="../../assets/js/checkDevice.min.js"></script>
   <script src="//code.jivosite.com/widget/ZNPZNVUfne" async></script>
-  <meta property="og:title" content="Elektrik Staff">
-  <meta property="og:url" content="https://elektrikstaff.ru">
-  <meta property="og:image" content="https://elektrikstaff.ru/assets/img/logo.jpg">
-  <meta property="og:description" content="Выполняем электро-монтажные работы в Краснодаре">
+  <meta property="og:title" content="Elektrik Staff"/>
+  <meta property="og:url" content="https://elektrikstaff.ru"/>
+  <meta property="og:image" content="https://elektrikstaff.ru/assets/img/logo2.jpg"/>
+  <meta property="og:description" content="Выполняем электро-монтажные работы в Краснодаре"/>
 </head>
 <body>
   <header class="header">
@@ -37,13 +47,11 @@
             <use class="svg-instagram__no-active" href="../../assets/img/sprite.svg#instagram" />
             <use class="svg-instagram__active" href="../../assets/img/sprite.svg#instagram" fill="url(#svg-instagram__lg)" />
           </svg>
-          <span class="social__link-name social__link-name--instagram">Instagram</span>
-          
+          <span class="social__link-name social__link-name--instagram">Instagram</span> 
         </a>
       </div>
       <button class="price-btn" id="js-popup-pl-open" data-name="Прайс-лист"></button>
     </div>
-
     <div class="price-list popup" id="js-popup-pl">
       <div class="price-list__content popup__content">
         <h3 class="price-list__title popup__title">Прайс лист</h3>
@@ -57,9 +65,7 @@
         </div>
       </div>
     </div>
-   
   </header>
-
   <section class="main" style="background-image: url(../../assets/img/main/bg.jpg);">
      <div class="container">
       <div class="main__inner">
@@ -78,7 +84,6 @@
       </div>
     </div>
   </section>
-
   <section class="advantages">
     <div class="container">
       <h2 class="title-two">ПОЧЕМУ <span class="title-two__end">МЫ?</span></h2>
@@ -119,7 +124,6 @@
       </div>
     </div>
   </section>
-
   <section class="section-mail" id="js-check-device">
     <div class="container">
       <div class="section-mail__rect">
@@ -142,7 +146,7 @@
               </label>
               <label class=" mail-popup__form-label mail-popup__form-label--textarea">
                 <span class="mail-popup__form-label-text">Сообщение</span>
-                <textarea textarea class="mail-popup__form-item mail-popup__form-textarea" id="js-m-textarea" name="msg" required></textarea>
+                <textarea class="mail-popup__form-item mail-popup__form-textarea" id="js-m-textarea" name="msg" required></textarea>
               </label>
               <input class="mail-popup__form-item mail-popup__form-send" type="submit" value="Отправить">
             </form>
@@ -151,17 +155,15 @@
       </div>
     </div>
   </section>
-
   <section class="steps">
     <div class="container">
       <h2 class="title-two">ПОРЯДОК <span class="title-two__end">РАБОТ</span></h2>
       <p class="subtitle">Опытные электромонтажники с профильным образованием, профессиональный инструмент и
         качественные материалы – это гарантия качественно выполненного электромонтажа в короткие сроки.
       </p>
-      <object class="steps__image" data="../../assets/img/steps/groupRhombus.svg" type="image/svg+xml" class="card__icon"></object>
+      <object class="steps__image" data="../../assets/img/steps/groupRhombus.svg" type="image/svg+xml"></object>
     </div>
   </section>
-
   <section class="quality">
     <div class="container">
       <h2 class="title-two">КТО ЕСЛИ <span class="title-two__end">НЕ МЫ?</span></h2>
@@ -179,19 +181,16 @@
               <use class="quality__svg-use" xlink:href="../../assets/img/sprite.svg#low_prices"  />
             </svg>
           </li>
-          
           <li class="quality__item-img" data-text="Ответственность">
             <svg class="quality__svg">
               <use class="quality__svg-use" href="../../assets/img/sprite.svg#handshake"  />
             </svg>
           </li>
-
           <li class="quality__item-img" data-text="Соблюдение сроков">
             <svg class="quality__svg">
               <use class="quality__svg-use" xlink:href="../../assets/img/sprite.svg#deadlines" />
             </svg>
           </li>
-
           <li class="quality__item-img" data-text="Гарантия">
             <svg class="quality__svg">
               <use class="quality__svg-use" xlink:href="../../assets/img/sprite.svg#garantee" />
@@ -199,7 +198,6 @@
           </li>
         </ul>
       </div>
-
        <div class="slider">
         <ul class="slider__items">
           <li class="slider__item slider__item--one" style="background-image: url(../../assets/img/slider/img1.jpg);">
@@ -254,21 +252,24 @@
             </div>
           </li>
         </ul>
-      
         <a class="slider__control slider__control_left" href="#" role="button"></a>
         <a class="slider__control slider__control_right slider__control_show" href="#" role="button"></a> 
       </div> 
-      
     </div>
-  </section> 
-
+  </section>
   <section class="inst">
     <div class="container">
       <h3 class="title-two">INSTAGRAM</h3>
-      <?php require_once __DIR__.'/../component/instSliders.php';  ?>
+      <?php 
+          if(get_class($PDO) === 'PDOException'){
+            echo $PDO->getMessage();
+          }else{
+            require_once __DIR__.'/../../services/getInstMedia.php';
+            require_once __DIR__.'/../component/instSliders.php';  
+          }
+      ?>
     </div>
   </section>
-
   <section class="y-map">
     <div class="container">
       <h3 class="title-two">НАШ <span class="title-two__end">АДРЕС</span></h3>
@@ -277,9 +278,5 @@
       </div>
     </div>
   </section>
- 
-
-  
   <script src="../../assets/js/bundle.min.js" defer></script>
-
 <?php require_once __DIR__.'/../component/footer.php'?>

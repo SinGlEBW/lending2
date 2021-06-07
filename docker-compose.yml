@@ -1,0 +1,33 @@
+version: "3.9"
+
+services: 
+  apache_server:
+    image: apache_mod:8.0.2
+    env_file: ${ENV_FILE}
+    volumes: 
+      - ./${APP_FOLDER}:/var/www/html
+    ports: 
+      - ${SERVER_PORT}:80     
+    restart: always
+
+  db:
+    image: mysql:latest
+    env_file: ${ENV_FILE}
+    # command: /etc/init.d/mysql start
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+   
+    volumes: 
+      - ./database/save:/var/lib/mysql
+      - ./database/conf.d:/etc/mysql/conf.d
+      - ./database/setTable:/docker-entrypoint-initdb.d
+    restart: always
+
+  phpmyadmin:
+    image: phpmyadmin
+    ports: 
+      - 8080:80
+    depends_on: 
+      - db
+    restart: always

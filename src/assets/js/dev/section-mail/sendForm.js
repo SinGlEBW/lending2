@@ -1,6 +1,6 @@
 import { popup } from '../popup';
 import { state } from './check-in';
-import { protocol, host, port } from '../../../../config/config.json';
+let { protocol, hostname } = location;
 
 let popupMail = document.querySelector('#js-popup-mail');
 let popupOpen = document.querySelector('#js-popup-mail-open');
@@ -12,12 +12,10 @@ mailForm.addEventListener('submit', sendMail);
 
 function sendMail(ev){
   ev.preventDefault();
-  console.dir(state);
+  
   if(!Object.values(state).every((item) => item.status)){ return; }
-   
-  console.dir('успех');
 
-  fetch(`${protocol}://${host}${port}/mail`, {
+  fetch(`${protocol}//${hostname}/mail`, {
     method: 'POST',
     body: new FormData(this)
   })
@@ -60,15 +58,6 @@ function resetForm(){
 }
 
 
-
-function err(data){
-  mailForm.classList.toggle('mail-popup__form--error');
-  let timing = parseFloat(getComputedStyle(mailForm).transitionDuration);
-  console.dir(timing);
-  setTimeout(()=>{
-    mailForm.insertAdjacentHTML('afterend', msg)//JSON.stringify(data)
-  }, timing * 1000);
-}
 
 
 

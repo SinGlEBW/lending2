@@ -1,4 +1,5 @@
-<?
+<?php
+
 function connect ($host, $dbName, $dbLogin, $dbPass){
 	$options = [
 		PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
@@ -7,14 +8,10 @@ function connect ($host, $dbName, $dbLogin, $dbPass){
 	];
 	
 	try {
+		// Через docker указывать ip контейнера или его сервисное имя 
 		return new PDO("mysql:host=$host;dbname=$dbName;", $dbLogin, $dbPass, $options);
 	} catch (PDOException $err) {
-		var_dump($err->getMessage());
-		exit;
+		return $err;
 	}
 }
-
- $PDO = connect(HOST, DB_NAME, DB_LOGIN, DB_PASS);
-
-?>
-
+$PDO = connect($_ENV['DB_HOST'], $_ENV['DB_DATABASE'], $_ENV['DB_LOGIN'], $_ENV['DB_PASSWORD']);

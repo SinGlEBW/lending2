@@ -1,6 +1,7 @@
 <div class="inst__sliders">
   <? 
-    require_once __DIR__.'/../../services/getInstMedia.php';
+  
+  // $media из getInstMedia.php подключённой в index.php страницы
     foreach ($media->data as $key => $album):{ 
     ?>
       <div class="inst__slider inst__slider--<?=++$key?>">
@@ -18,4 +19,5 @@
     <?
     }endforeach;
   ?>
+  
 </div>

@@ -1,6 +1,6 @@
 import { preloaderTable } from './preloader';
 import { popup } from './popup';
-import { protocol, host, port } from '../../../config/config.json';
+let { protocol, host } = location;
 
 let priceBtn = document.querySelector('#js-popup-pl-open');
 let priceList = document.querySelector('#js-popup-pl');
@@ -9,13 +9,12 @@ let tableBody = document.querySelector('#js-p-tableBody');
 
 popup(priceList, priceBtn, {noBlockEl: priceTable, opened: ajaxRequestTable})
 
-
 /*########---------<{ Main Function }>---------#########*/
-
+console.dir(`${protocol}//${host}/table`);
 function ajaxRequestTable(){
   if(!tableBody.children.length){
     tableBody.innerHTML = preloaderTable();
-    fetch(`${protocol}://${host}${port}/table`)
+    fetch(`${protocol}//${host}/table`)
     .then((data) => data.json())
     .then((data)=>{
       tableBody.innerHTML = '';
@@ -31,16 +30,14 @@ function ajaxRequestTable(){
 }
 
 
-
-
 /*#######------<{ renderTable and hangTheFunctionality }>--------#######*/
 
 function renderTable(data){
   for (const arrTables of data) {
-    console.dir(arrTables);
+    
     if(Number(arrTables.id) === 1) {  
       tableBody.innerHTML +=  
-      `<tr class="price-list__row-head-title" >
+     `<tr class="price-list__row-head-title" >
         <th class="price-list__cell-head-title" colspan="4">${arrTables.services}</th>
       </tr>
         <tr class="price-list__row-info" >
@@ -52,7 +49,7 @@ function renderTable(data){
         </tr>`;
     }else {
       tableBody.innerHTML +=  
-    `<tr class="price-list__row">
+     `<tr class="price-list__row">
         <td class="price-list__cell">${arrTables.services}</td>
         <td class="price-list__cell">${arrTables.unit}</td>
         <td class="price-list__cell js-p-rub">${arrTables.price}</td>

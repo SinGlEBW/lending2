@@ -1,6 +1,7 @@
 <?
 
-require_once __DIR__.'/db_connect.php';
+
+//$PDO из db_connect.php который пробрасывается от главного файла index.php
 
 $PDOStatement = $PDO->query("SELECT * FROM instagram_token WHERE id=(SELECT max(id) FROM instagram_token)");
 $objToken = $PDOStatement->fetch();//почему-то нельзя 2 раза обращаться к fetch подомным методам
@@ -10,11 +11,10 @@ $PDOStatement->closeCursor();// соединение вроде автомато
 $dateTime = new DateTime;
 $difference = $dateTime->diff(new DateTime($objToken->token_date));
 
-if($difference->d > 45){
+if($difference->days > 45){
 	$newObjToken = refreshTokenInstagram($objToken->access_token);
-	console_dir($newObjToken);
 	// $newObjToken - { "access_token": "{access-token}", "token_type": "{token-type}", "expires_in": {expires-in} }
-	echo "1 этап</br>";
+	// echo "Получение токена</br>";
 	$flag = false;
 	if(isset($newObjToken)){//
 		$PDOStatement = $PDO->prepare('INSERT INTO instagram_token(access_token) VALUES(:access_token)');
@@ -22,7 +22,7 @@ if($difference->d > 45){
 	}	
 	
 	if($flag){
-		echo "2 этап</br>";
+		// echo "2 этап</br>";
 		$PDOStatement = $PDO->query("SELECT * FROM instagram_token WHERE id=(SELECT max(id) FROM instagram_token)");
 		$objToken = $PDOStatement->fetch();//почему-то нельзя 2 раза обращаться к fetch подомным методам	
 		$PDOStatement->closeCursor();	
@@ -32,13 +32,14 @@ if($difference->d > 45){
 	}
 }
 
-$media = getMediaInstagram($objToken->access_token);
-//$media = json_decode(file_get_contents('data.json', true));
+//$media = getMediaInstagram($objToken->access_token);
+$media = json_decode(file_get_contents('data.json', true));
 
 
 // $mediaArr = getPhotosInArray($media, 10);//10 объектов с фото.
 /*---------------------------------------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------------------------------------*/
+// резерв
 function getPhotosInArray($media, $photoCount){
 
 	$instMedias = [];

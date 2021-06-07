@@ -25,7 +25,7 @@ let cards = document.querySelector('#js-adv-cards');
         card.classList.add('card--active')
       }  
       if(card.classList.contains('card--active') && !state.visibilityReact){
-        console.dir(22);
+       
         state.total = 0;
         state.visibilityReact = false;
         card.classList.remove('card--active'); 

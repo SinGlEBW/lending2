@@ -4,13 +4,11 @@ let header = document.querySelector('.header');
 if(header.clientWidth < 768){
 
   let btnMenu = 
-  `
-    <div class="btn-burger">
+   `<div class="btn-burger">
       <i class="btn-burger__item"></i>
       <i class="btn-burger__item"></i>
       <i class="btn-burger__item"></i>
-    </div>
-  `;
+    </div>`;
   header.insertAdjacentHTML("beforeend", btnMenu);
   let headerBtnMenu = document.querySelector('.btn-burger');
   headerBtnMenu.addEventListener('click', toggleMenu);
